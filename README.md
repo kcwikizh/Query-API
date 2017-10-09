@@ -9,6 +9,7 @@
 </br>其余均来自<font color="#1E90FF"><b><a href="https://zh.kcwiki.org/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91">舰娘百科</a></b></font>
 <h3>本程序的明石工厂功能模块已获明石工厂授权采集数据，第三方欲使用该模块功能请自行向明石工厂申请授权！</h3>
 
-</br>本api目前仅应用于舰娘百科查询小助手
+</br>wiki写有范例的接口为已完工接口。
+</br>本api目前仅应用于舰娘百科查询小助手（微信小程序）
 
 </br>调用详情请看<b><a href="https://github.com/kcwikizh/Query-API/wiki">wiki</a></b>。
