@@ -11,4 +11,4 @@
 
 </br>本api目前仅应用于舰娘百科查询小助手
 
-</br>调用详情请看<b><a href="https://github.com/kcwikizh/wechatApp-api/wiki">wiki</a></b>。
+</br>调用详情请看<b><a href="https://github.com/kcwikizh/Query-API/wiki">wiki</a></b>。
