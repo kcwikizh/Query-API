@@ -1,0 +1,49 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.table {  
+  width: 90%;  
+  justify-content: center;  
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;  
+  margin-right: 1rem;  
+  margin-left: 1rem;   
+}
+
+.swiper-tab{  
+  width: 100%;  
+  border-bottom: 2rpx solid #777777;  
+  text-align: center;  
+  line-height: 80rpx; 
+  }  
+.swiper-tab-list{ font-size: 30rpx;  
+  display: inline-block;  
+  width: 20%;  
+  color: #777777;  
+}  
+.on{ color: #da7c0c;  
+  border-bottom: 5rpx solid #da7c0c;}  
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
+.swiper-box view{  
+  text-align: center;  
+}  

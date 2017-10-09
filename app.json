@@ -1,0 +1,23 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/mapsearch/mapsearch",
+    "pages/poidb/poidb",
+    "pages/expedition/expedition",
+    "pages/akashilist/akashilist",
+    "pages/thankslist/thankslist"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}
+
+
+
+
+
+
+

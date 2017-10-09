@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<!--
+<view class="swiper-tab">  
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">11</view>  
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">22</view>  
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">33</view> 
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">44</view> 
+  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">55</view>     
+</view>  
+-->
+
+<text> \r </text>
+<scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" > 
+
+<view class="table">  
+  <block >
+    <view >
+      <text style="font-size:24px; color:black; " >欢迎来到舰百查询小程序！ </text>
+      <text>\r\n</text>
+      <text style="font-size:16px; color:red; " >目前仍在测试阶段</text>
+      <text>\r\n</text>
+      <text>\r\n</text>
+      <text style="font-size:20px; color:gray" >请选择所需功能：</text>
+    </view>
+  </block>
+  
+  <block>
+    <view>
+      <text>\r</text>
+      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="mapsearch" > 制空带路速查 </button>
+      <text>\r</text>
+      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="expedition" > 远征查询 </button>
+      <text>\r</text>
+      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="poidb" > POI掉落统计 </button>
+      <text>\r</text>
+      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="akashilist" > 明石改修工厂 </button>
+    </view>
+  </block>
+
+  <text>\n</text>
+
+  <block>
+  <view class="table" style="font-size:16px"> 
+    <text>\n</text>
+    <text> 说明： \n</text>
+    <text style='color:red; ' > 本程序不保证所显示数据绝对无误。 \n</text>
+    <text> 非老提督建议访问网页版以查看详细信息。 \n</text>
+    <text>\n</text>
+    <text style='color:gray; ' > 本程序绝大部分数据来源于  舰娘百科：zh.kcwiki.org \n</text>
+    <text style='color:gray; ' > 本程序的改修数据来源于  明石工厂：akashi-list.me \n</text>
+    <text>\n</text>
+    <text> 在此感谢各开荒dalao、验证dalao \n</text>
+  </view>
+  </block>
+  <view style="height:100rpx;"></view>
+</view>
+
+</scroll-view> 
+<!--
+<view class="buttom">
+  <view style="height:100%;flex-direction: row;justify-content: center;  align-items: center;  font-size: 26rpx;display: flex;" >
+    <button size="mini" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center;  display: flex; width: 60%; height:80%;" data-index="index"> 回到主页 </button>
+  </view>
+</view>
+-->
+
+
