@@ -1,5 +1,5 @@
 
-# wechatApp-api
+# Query-API 数据查询API
 <font size="14px">初步完工，择坑而填。</font>
 </br></br>
 </br>本api核心为爬取各个资料页面的数据，因此并不能确保数据的可靠与稳定。
