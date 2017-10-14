@@ -1,18 +1,46 @@
 <!--index.wxml-->
 <!--
-<view class="swiper-tab">  
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">11</view>  
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">22</view>  
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">33</view> 
-  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">44</view> 
-  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">55</view>     
-</view>  
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">11</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">22</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">33</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">44</view>
+  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">55</view>
+</view>
 -->
 
-<text> \r </text>
-<scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" > 
+<scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" >
+<view>
+  <image style="width: 100%; height: 200px; background-color: #eeeeee;" mode="aspectFill" src="../../asset/img/index01.jpg"></image>
+</view>
+<view class="nav">
+  <view class="nav-item">
+    <view class="nav-item-block" style="background-color: #46d3ec"></view>
+    <navigator url="/pages/mapsearch/mapsearch" hover-class="navigator-hover" class="navi">制空带路速查</navigator>
+  </view>
+  <view class="nav-item">
+    <view class="nav-item-block"  style="background-color: #67ec46"></view>
+    <navigator url="/pages/expedition/expedition" hover-class="navigator-hover" class="navi">远征查询</navigator>
+  </view>
+  <view class="nav-item">
+    <view class="nav-item-block"  style="background-color: #ec4646"></view>
+    <navigator url="/pages/poidb/poidb" hover-class="navigator-hover" class="navi">POI掉落统计</navigator>
+  </view>
+  <view class="nav-item">
+    <view class="nav-item-block"  style="background-color: #ece546"></view>
+    <navigator url="/pages/akashilist/akashilist" hover-class="navigator-hover" class="navi">明石改修工厂</navigator>
+  </view>
+</view>
 
-<view class="table">  
+<!-- <view>
+  <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="mapsearch" > 制空带路速查 </button>
+  <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="expedition" > 远征查询 </button>
+  <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="poidb" > POI掉落统计 </button>
+  <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="akashilist" > 明石改修工厂 </button>
+</view> -->
+
+
+<!-- <view class="table">
   <block >
     <view >
       <text style="font-size:24px; color:black; " >欢迎来到舰百查询小程序！ </text>
@@ -23,24 +51,12 @@
       <text style="font-size:20px; color:gray" >请选择所需功能：</text>
     </view>
   </block>
-  
-  <block>
-    <view>
-      <text>\r</text>
-      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="mapsearch" > 制空带路速查 </button>
-      <text>\r</text>
-      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="expedition" > 远征查询 </button>
-      <text>\r</text>
-      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="poidb" > POI掉落统计 </button>
-      <text>\r</text>
-      <button size="nomal" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center; max-width:60%; display: flex;  " bindtap="navTo" data-index="akashilist" > 明石改修工厂 </button>
-    </view>
-  </block>
+
 
   <text>\n</text>
 
   <block>
-  <view class="table" style="font-size:16px"> 
+  <view class="table" style="font-size:16px">
     <text>\n</text>
     <text> 说明： \n</text>
     <text style='color:red; ' > 本程序不保证所显示数据绝对无误。 \n</text>
@@ -53,9 +69,9 @@
   </view>
   </block>
   <view style="height:100rpx;"></view>
-</view>
+</view> -->
 
-</scroll-view> 
+</scroll-view>
 <!--
 <view class="buttom">
   <view style="height:100%;flex-direction: row;justify-content: center;  align-items: center;  font-size: 26rpx;display: flex;" >
@@ -63,5 +79,3 @@
   </view>
 </view>
 -->
-
-
