@@ -1,11 +1,9 @@
-
-<text> \r </text>
 <scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" >
 <view class="{{areaTableShowView?'table':'hideView'}}">
 
   <view class="tr bg-w">
     <view class="th-title">{{areaTitleView}}</view>
-  </view> 
+  </view>
   <block  wx:for="{{areaDataView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="name">
      <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}">
       <view class="td-1" selectable="true" bindtap="getpoint" data-index="{{area[0][0].name}}">
@@ -26,8 +24,6 @@
   </block>
 </view>
 
-<block>
-</block>
 
 <view class="{{pointTableShowView?'table':'hideView'}}" id="pointTable" >
   <view class="tr bg-w">
@@ -52,12 +48,10 @@
     </view>
   </block>
 </view>
-
-<view style="height:100rpx;"></view>
 </scroll-view>
 
-<view class="buttom">
+<!-- <view class="buttom">
   <view style="height:100%;flex-direction: row;justify-content: center;  align-items: center;  font-size: 26rpx;display: flex;" >
     <button size="mini" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center;  display: flex; width: 60%; height:80%;" bindtap="backTo" data-index="index"> 回到主页 </button>
   </view>
-</view>
+</view> -->

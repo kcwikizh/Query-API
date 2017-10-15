@@ -4,7 +4,16 @@
   width: 100%;
 }
 
-.nav-item{
+
+.nav-item-block{
+  display: inline-block;
+  width:20px;
+  height:20px;
+  margin-right: 20px;
+}
+
+.navi{
+  display: inline-block;
   padding: 20px;
   position: relative;
   font-size: 16px;
@@ -12,18 +21,6 @@
   margin: 10px 0px;
   display: flex;
   align-items: center;
-}
-
-.nav-item-block{
-  display: inline-block;
-  width:20px;
-  height:20px;
-
-}
-
-.navi{
-  display: inline-block;
-  margin-left: 10px;
 }
 
 .nav-item::after{
