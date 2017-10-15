@@ -1,9 +1,47 @@
 
 <text> \r </text>
 <scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" > 
-<view class="{{akashilistTableShowView?'table':'hideView'}}">  
+
+<view class="{{akashitypeTableShowView?'table':'hideView'}}">  
 
   <view class="tr bg-w">  
+    <view class="th-title">{{akashitypeTitleView}}</view>  
+  </view> 
+  <block  wx:for="{{akashitypeView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="id">  
+     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
+      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[0][0].id}}">
+          <text class="th-text" selectable="true" >{{area[0][1].title}}</text> 
+      </view>  
+      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[1][0].id}}">
+          <text class="th-text" selectable="true" >{{area[1][1].title}}</text> 
+      </view>
+      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[2][0].id}}">
+          <text class="th-text" selectable="true" >{{area[2][1].title}}</text> 
+      </view>
+      <view class="td-2" selectable="true" bindtap="gettype" data-index="{{area[3][0].id}}">  
+          <text class="th-text" selectable="true" >{{area[3][1].title}}</text>  
+      </view>  
+    </view>  
+    <view class="tr bg-g2" wx:else>  
+      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[0][0].id}}">
+          <text class="th-text" selectable="true" >{{area[0][1].title}}</text> 
+      </view>  
+      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[1][0].id}}">
+          <text class="th-text" selectable="true" >{{area[1][1].title}}</text> 
+      </view>
+      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[2][0].id}}">
+          <text class="th-text" selectable="true" >{{area[2][1].title}}</text> 
+      </view>
+      <view class="td-2" selectable="true" bindtap="gettype" data-index="{{area[3][0].id}}">  
+          <text class="th-text" selectable="true" >{{area[3][1].title}}</text>  
+      </view>   
+    </view>   
+  </block>  
+</view>
+
+<view class="{{akashilistTableShowView?'table':'hideView'}}">  
+
+  <view class="tr bg-w" id="akashiItemsTable" >  
     <view class="th-title">{{akashiTitleView}}</view>  
   </view> 
   <block  wx:for="{{akashilistView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="id">  

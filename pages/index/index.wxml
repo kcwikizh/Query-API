@@ -32,6 +32,10 @@
   </view>
 </view>
 
+<view style='text-align: center;  align-items: center; margin-top:1rem'>
+  <text style="font-size:18px; color:gray; " >请点击文字区域，否则不能跳转到页面。 \r\n</text>
+  <text style="font-size:18px; color:gray; " >页面仍在改版中！ \r\n</text>
+</view>
 <!-- <view>
   <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="mapsearch" > 制空带路速查 </button>
   <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="expedition" > 远征查询 </button>
