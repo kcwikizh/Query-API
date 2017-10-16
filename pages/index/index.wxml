@@ -32,6 +32,7 @@
   </navigator>
 </view>
 
+
 <!-- <view>
   <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="mapsearch" > 制空带路速查 </button>
   <button size="nomal" type="primary" plain="true"  bindtap="navTo" data-index="expedition" > 远征查询 </button>

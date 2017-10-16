@@ -15,7 +15,6 @@ Page({
   },
 
   onLoad: function () {
-    console.log(1);
     var that = this;
 
     /**

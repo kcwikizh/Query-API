@@ -10,14 +10,16 @@ Page({
     areaTitleView,
     areaTableShowView,
     pointTitleView,
-    pointTableShowView
+    pointTableShowView,
+    pageData:[],
+    blockVisiable:''
   },
-
-  onLoad: function () {
-    var that = this;
-    that.setData({
-      areaTitleView: '各大海域'
+  tapName: function(event){
+    this.setData({
+      blockVisiable: event.target.id+''
     })
+  },
+  getData: function(){
     wx.request({
       url: 'https://wx.kcwiki.org/query',
       data: {
@@ -28,44 +30,77 @@ Page({
         //'content-type': 'application/json', (GET模式才能用)
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      success: function (res) {
-        if (res.data.status != "success") {
-          //console.log("query failed" + res.data.data);
-          return;
+      success: (res) => {
+        if (res.data.status == "success") {
+          //console.log("query failed" + res.data.data)
+          this.setData({
+            pageData: res.data.data
+          });
         }
-        var json = res.data.data;
-        app.globalData.mapfastData = res.data.data;
-        //console.log("globalData" + app.globalData.expeditionData);
-        var arrs = [];
-        var obj = [];
-        var tmp = {};
-        var list = [];
-        var count = 0;
-        var isAdd = false;
-        for (var i in json) {
-          isAdd = false;
-          count++;
-          obj = [];
-          tmp = { name: i };
-          obj.push(tmp);
-          arrs.push(obj);
-          if (count % 2 == 0) {
-            list.push(arrs);
-            arrs = [];
-            isAdd = true;
-          }
-        };
-        if (!isAdd) {
-          list.push(arrs);
+        else if ( res.data.status == "error" ) {
+          //获取接口数据出错
+          console.log(res.errMsg);
+          wx.showToast({
+            title:'数据获取出错',
+          })
         }
-        //console.log(list);
-        that.setData({
-          areaTitleView: '各大海域',
-          areaDataView: list,
-          areaTableShowView: true
-        })
       },
     })
+  },
+  onLoad: function () {
+    this.getData();
+    // var that = this;
+    // that.setData({
+    //   areaTitleView: '各大海域'
+    // })
+    // wx.request({
+    //   url: 'https://wx.kcwiki.org/query',
+    //   data: {
+    //     query: 'mapfast'
+    //   },
+    //   method: 'POST',
+    //   header: {
+    //     //'content-type': 'application/json', (GET模式才能用)
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //   },
+    //   success: function (res) {
+    //     if (res.data.status != "success") {
+    //       //console.log("query failed" + res.data.data);
+    //       return;
+    //     }
+    //     var json = res.data.data;
+    //     app.globalData.mapfastData = res.data.data;
+    //     //console.log("globalData" + app.globalData.expeditionData);
+    //     var arrs = [];
+    //     var obj = [];
+    //     var tmp = {};
+    //     var list = [];
+    //     var count = 0;
+    //     var isAdd = false;
+    //     for (var i in json) {
+    //       isAdd = false;
+    //       count++;
+    //       obj = [];
+    //       tmp = { name: i };
+    //       obj.push(tmp);
+    //       arrs.push(obj);
+    //       if (count % 2 == 0) {
+    //         list.push(arrs);
+    //         arrs = [];
+    //         isAdd = true;
+    //       }
+    //     };
+    //     if (!isAdd) {
+    //       list.push(arrs);
+    //     }
+    //     //console.log(list);
+    //     that.setData({
+    //       areaTitleView: '各大海域',
+    //       areaDataView: list,
+    //       areaTableShowView: true
+    //     })
+    //   },
+    // // })
   },
 
   getpoint: function getpoint(e) {
@@ -84,7 +119,6 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded",
         },
         success: function (res) {
-
           //console.log(res.data);
           var json = res.data.data;
           app.globalData.mapfastData = res.data.data;
@@ -183,7 +217,7 @@ Page({
         }
       };
 
-      
+
       for (var j in json) {
         count++;
         var str = "";
@@ -230,7 +264,7 @@ Page({
             arrs = [];
             isAdd = true;
           }
-        
+
       };
       if (!isAdd) {
         list.push(arrs);
@@ -259,5 +293,5 @@ Page({
     })
     //console.log(this.data.toView)
 
-  }, 
+  },
 })

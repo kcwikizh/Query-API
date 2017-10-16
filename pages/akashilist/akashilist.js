@@ -18,13 +18,72 @@ Page({
   onLoad: function () {
     var that = this;
     that.setData({
-      akashiTitleView: '今日改修'
+      akashitypeTitleView: '请选择装备类型'
     })
     wx.request({
       url: 'https://wx.kcwiki.org/query',
       //url: 'http://localhost:8080/WebApplication2/query',
       data: {
-        query: 'akashilist'
+        query: 'akashitype',
+      },
+      method: 'POST',
+      header: {
+        //'content-type': 'application/json', (GET模式才能用)
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: function (res) {
+        if (res.data.status != "success") {
+          //console.log("query failed" + res.data.data);
+          return;
+        }
+        var json = res.data.data;
+        //app.globalData.akashiData = res.data.data;
+        //console.log("globalData" + app.globalData.akashiData);
+        var arrs = [];
+        var obj = [];
+        var tmp = {};
+        var list = [];
+        var count = 0;
+        var isAdd = false;
+        for (var i in json) {
+          isAdd = false;
+          count++;
+          obj = [];
+          tmp = { id: i };
+          obj.push(tmp);
+          tmp = { title: json[i] };
+          obj.push(tmp);
+          arrs.push(obj);
+          //console.log(json[i]);
+          if (count % 4 == 0) {
+            list.push(arrs);
+            arrs = [];
+            isAdd = true;
+          }
+        };
+        if (!isAdd) {
+          list.push(arrs);
+        }
+        //console.log(list);
+        that.setData({
+          akashitypeView: list,
+          akashitypeTableShowView: true
+        })
+      },
+    })
+  },
+
+  gettype: function getitem(e) {
+    var that = this;
+    var querytype = String(e.currentTarget.dataset.index);
+    //console.log(wid);
+
+    wx.request({
+      url: 'https://wx.kcwiki.org/query',
+      //url: 'http://localhost:8080/WebApplication2/query',
+      data: {
+        query: 'akashilist',
+        'type': querytype
       },
       method: 'POST',
       header: {
@@ -68,6 +127,7 @@ Page({
           akashilistView: list,
           akashilistTableShowView: true
         })
+        that.scrollToViewFn('akashiItemsTable');
       },
     })
   },
@@ -93,11 +153,9 @@ Page({
         that.setData({
           akashiImgView: arrs
         });
-        that.scrollToViewFn('shipimgTable');
         break;
       }
     };
-
 
       wx.request({
         url: 'https://wx.kcwiki.org/query',
@@ -219,6 +277,7 @@ Page({
             akashistatusView: statuslist,
             akashiitemTableShowView: true
           });
+          that.scrollToViewFn('shipimgTable');
           //that.scrollToViewFn('itemTable');
         },
       })
