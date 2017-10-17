@@ -4,7 +4,7 @@
       <text class="title">{{index}}</text>
       <block wx:for="{{item}}">
         <view class="item-wrapper">
-          <text class="sub-title"  bindtap="tapName" id="{{index}}">地图编号：{{index}}</text>
+          <text class="sub-title"  bindtap="showContent" id="{{index}}">地图编号：{{index}}</text>
           <view hidden="{{blockVisiable !== index}}">
             <block wx:for="{{item}}" >
               <view class="item" >

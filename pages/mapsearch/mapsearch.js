@@ -7,14 +7,14 @@ var pointTableShowView;
 // Register a Page.
 Page({
   data: {
-    areaTitleView,
-    areaTableShowView,
-    pointTitleView,
-    pointTableShowView,
+    // areaTitleView,
+    // areaTableShowView,
+    // pointTitleView,
+    // pointTableShowView,
     pageData:[],
     blockVisiable:''
   },
-  tapName: function(event){
+  showContent: function(event){
     this.setData({
       blockVisiable: event.target.id+''
     })
