@@ -11,6 +11,7 @@ Page({
     // areaTableShowView,
     // pointTitleView,
     // pointTableShowView,
+    animationData: {},
     pageData:[],
     blockVisiable:''
   },

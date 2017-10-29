@@ -10,27 +10,28 @@
 -->
 
 <scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" >
-<view>
-  <image style="width: 100%; height: 200px; background-color: #eeeeee;" mode="aspectFill" src="../../asset/img/index01.jpg"></image>
-</view>
-<view class="nav">
-  <navigator url="/pages/mapsearch/mapsearch" hover-class="navigator-hover" class="navi">
-    <view class="nav-item-block" style="background-color: #46d3ec"></view>
-    制空带路速查
-  </navigator>
-  <navigator url="/pages/expedition/expedition" hover-class="navigator-hover" class="navi">
-    <view class="nav-item-block" style="background-color: #67ec46"></view>
-    远征查询
-  </navigator>
-  <navigator url="/pages/poidb/poidb" hover-class="navigator-hover" class="navi">
-    <view class="nav-item-block" style="background-color: #ec4646"></view>
-    POI掉落统计
-  </navigator>
-  <navigator url="/pages/akashilist/akashilist" hover-class="navigator-hover" class="navi">
-    <view class="nav-item-block" style="background-color: #ece546"></view>
-    明石改修工厂
-  </navigator>
-</view>
+  <view>
+    <image style="width: 100%; height: 200px; background-color: #eeeeee;" mode="aspectFill" src="../../asset/img/index01.jpg"></image>
+  </view>
+  <view class="nav">
+    <navigator url="/pages/mapsearch/mapsearch" hover-class="navigator-hover" class="navi">
+      <view class="nav-item-block" style="background-color: #46d3ec"></view>
+      制空带路速查
+    </navigator>
+    <navigator url="/pages/expedition/expedition" hover-class="navigator-hover" class="navi">
+      <view class="nav-item-block" style="background-color: #67ec46"></view>
+      远征查询
+    </navigator>
+    <navigator url="/pages/poidb/poidb" hover-class="navigator-hover" class="navi">
+      <view class="nav-item-block" style="background-color: #ec4646"></view>
+      POI掉落统计
+    </navigator>
+    <navigator url="/pages/akashilist/akashilist" hover-class="navigator-hover" class="navi">
+      <view class="nav-item-block" style="background-color: #ece546"></view>
+      明石改修工厂
+    </navigator>
+  </view>
+
 
 
 <!-- <view>

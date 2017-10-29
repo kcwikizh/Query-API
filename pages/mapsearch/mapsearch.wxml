@@ -4,10 +4,10 @@
       <text class="title">{{index}}</text>
       <block wx:for="{{item}}">
         <view class="item-wrapper">
-          <text class="sub-title"  bindtap="showContent" id="{{index}}">地图编号：{{index}}</text>
-          <view hidden="{{blockVisiable !== index}}">
+          <text class="sub-title"  bindtap="showContent" id="{{index}}">{{index}}</text>
+          <view hidden="{{blockVisiable !== index}}"  class="item" >
             <block wx:for="{{item}}" >
-              <view class="item" >
+              <view >
                 <span class="item-content">
                   方案{{index+1}}：
                 </span>

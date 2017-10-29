@@ -1,169 +1,21 @@
 
-<text> \r </text>
-<scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" > 
-
-<view class="{{akashitypeTableShowView?'table':'hideView'}}">  
-
-  <view class="tr bg-w">  
-    <view class="th-title">{{akashitypeTitleView}}</view>  
-  </view> 
-  <block  wx:for="{{akashitypeView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="id">  
-     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
-      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[0][0].id}}">
-          <text class="th-text" selectable="true" >{{area[0][1].title}}</text> 
-      </view>  
-      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[1][0].id}}">
-          <text class="th-text" selectable="true" >{{area[1][1].title}}</text> 
+<scroll-view   scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" class="scroll-wrapper">
+  <view class="side-menu">
+    <block wx:for="{{pageData}}">
+      <view class="item-wrapper" hover-class="item-wrapper-hover">
+        <span>
+          {{item}}
+        </span>
       </view>
-      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[2][0].id}}">
-          <text class="th-text" selectable="true" >{{area[2][1].title}}</text> 
-      </view>
-      <view class="td-2" selectable="true" bindtap="gettype" data-index="{{area[3][0].id}}">  
-          <text class="th-text" selectable="true" >{{area[3][1].title}}</text>  
-      </view>  
-    </view>  
-    <view class="tr bg-g2" wx:else>  
-      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[0][0].id}}">
-          <text class="th-text" selectable="true" >{{area[0][1].title}}</text> 
-      </view>  
-      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[1][0].id}}">
-          <text class="th-text" selectable="true" >{{area[1][1].title}}</text> 
-      </view>
-      <view class="td-1" selectable="true" bindtap="gettype" data-index="{{area[2][0].id}}">
-          <text class="th-text" selectable="true" >{{area[2][1].title}}</text> 
-      </view>
-      <view class="td-2" selectable="true" bindtap="gettype" data-index="{{area[3][0].id}}">  
-          <text class="th-text" selectable="true" >{{area[3][1].title}}</text>  
-      </view>   
-    </view>   
-  </block>  
-</view>
-
-<view class="{{akashilistTableShowView?'table':'hideView'}}">  
-
-  <view class="tr bg-w" id="akashiItemsTable" >  
-    <view class="th-title">{{akashiTitleView}}</view>  
-  </view> 
-  <block  wx:for="{{akashilistView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="id">  
-     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
-      <view class="td-1" selectable="true" bindtap="getitem" data-index="{{area[0].id}}">
-          <text class="th-text" selectable="true" >{{area[0].title}}</text> 
-      </view>  
-      <view class="td-2" selectable="true" bindtap="getitem" data-index="{{area[1].id}}">  
-          <text class="th-text" selectable="true" >{{area[1].title}}</text>  
-      </view>  
-    </view>  
-    <view class="tr bg-g2" wx:else>  
-      <view class="td-1" selectable="true" bindtap="getitem" data-index="{{area[0].id}}">
-          <text class="th-text" selectable="true" >{{area[0].title}}</text> 
-      </view>  
-      <view class="td-2" selectable="true" bindtap="getitem" data-index="{{area[1].id}}">  
-          <text class="th-text" selectable="true" >{{area[1].title}}</text>  
-      </view>  
-    </view>   
-  </block>  
-</view>  
-
-
-<view  class="{{akashiitemTableShowView? 'mapimg':'hideView'}}" id="shipimgTable">
-  <block  wx:for="{{akashiImgView}}"  wx:for-index="areaidx" wx:for-item="area" >
-    <image src="{{ area }}" bindload="imageLoad" data-index="{{ index }}" 
-    style="width: {{imagewidth}}px; height: {{imageheight}}px; justify-content: center; align-items: center;  display: flex; ">
-    </image>
-  </block>
-</view>
- 
-<block  wx:for="{{akashistatusView}}"  wx:for-index="statusidx" wx:for-item="status" wx:key="id">
-  <view class="{{akashiitemTableShowView?'table':'hideView'}}" >  
-    <view>
-    <view class="tr-status bg-w">  
-      <view class="th-text" style='font-size:16px'>{{status[0].id}}</view>  
-    </view> 
-
-    <block> 
-    <view class="tr-status bg-g" > 
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[0]}}</text>  
-        </view>
-       <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[1]}}</text>  
-        </view>
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[2]}}</text>  
-        </view>
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[3]}}</text>  
-        </view>
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[4]}}</text>  
-        </view>
-        <view class="td-1" selectable="true"  style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[5]}}</text>  
-        </view>
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[6]}}</text>  
-        </view>
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[7]}}</text>  
-        </view>
-        <view class="td-1" selectable="true" style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[8]}}</text>  
-        </view>
-        <view class="td-2" selectable="true"  style='word-break: break-all' >  
-            <text class="th-status" selectable="true" >{{status[1].arr[9]}}</text>  
-        </view>
-      </view> 
     </block>
-    </view>
   </view>
-</block> 
- 
-
-<view class="{{akashiitemTableShowView?'table':'hideView'}}" >  
-  <view class="tr bg-w">  
-    <view class="th-title">{{akashititleView[0]}}</view>  
-    <view class="th-title">{{akashititleView[1]}}</view>  
-    <view class="th-title">{{akashititleView[2]}}</view>  
-    <view class="th-title">{{akashititleView[3]}}</view>  
-  </view> 
-  <block  wx:for="{{akashiitemView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="no">  
-     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
-      <view class="td-1" selectable="true"  data-index="{{area[0]}}">  
-          <text class="th-text" selectable="true" >{{area[0]}}</text>  
-      </view>
-      <view class="td-1" selectable="true"  data-index="{{area[1]}}">  
-          <text class="th-text" selectable="true" >{{area[1]}}</text>  
-      </view>
-      <view class="td-1" selectable="true"  data-index="{{area[2]}}">  
-          <text class="th-text" selectable="true" >{{area[2]}}</text>  
-      </view>
-      <view class="td-2" selectable="true"  data-index="{{area[3]}}">  
-          <text class="th-text" selectable="true" >{{area[3]}}</text>  
-      </view>
-    </view>  
-    <view class="tr bg-g2" wx:else>  
-      <view class="td-1" selectable="true"  data-index="{{area[0]}}">  
-          <text class="th-text" selectable="true" >{{area[0]}}</text>  
-      </view>
-      <view class="td-1" selectable="true"  data-index="{{area[1]}}">  
-          <text class="th-text" selectable="true" >{{area[1]}}</text>  
-      </view>
-      <view class="td-1" selectable="true"  data-index="{{area[2]}}">  
-          <text class="th-text" selectable="true" >{{area[2]}}</text>  
-      </view>
-      <view class="td-2" selectable="true"  data-index="{{area[3]}}">  
-          <text class="th-text" selectable="true" >{{area[3]}}</text>  
-      </view>
-    </view>   
-  </block>  
-</view>  
-
-<view style="height:100rpx;"></view>
-</scroll-view> 
-
-<view class="buttom">
-  <view style="height:100%;flex-direction: row;justify-content: center;  align-items: center;  font-size: 26rpx;display: flex;" >
-    <button size="mini" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center;  display: flex; width: 50%; height:80%;" bindtap="backTo" data-index="index"> 回到主页 </button>
-    <button size="mini" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center;  display: flex; width: 40%; height:80%;" bindtap="backTo" data-index="thankslist" > 感谢名单 </button>
+  <view class="side-content">
+    1111
   </view>
+
+</scroll-view>
+<view>
+  <navigator url="/pages/thankslist/thankslist" hover-class="navigator-hover" class="navi">
+    数据致谢名单
+  </navigator>
 </view>

@@ -12,65 +12,94 @@ Page({
     akashilistView,
     akashilistTableShowView,
     akashiitemView,
-    akashiitemTableShowView
+    akashiitemTableShowView,
+    pageData:{},
   },
-
-  onLoad: function () {
-    var that = this;
-    that.setData({
-      akashitypeTitleView: '请选择装备类型'
-    })
+  getData: function(){
     wx.request({
       url: 'https://wx.kcwiki.org/query',
-      //url: 'http://localhost:8080/WebApplication2/query',
       data: {
-        query: 'akashitype',
+        query: 'akashitype'
       },
       method: 'POST',
       header: {
         //'content-type': 'application/json', (GET模式才能用)
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      success: function (res) {
-        if (res.data.status != "success") {
-          //console.log("query failed" + res.data.data);
-          return;
+      success: (res) => {
+        if (res.data.status == "success") {
+
+          this.setData({
+            pageData: res.data.data
+          });
         }
-        var json = res.data.data;
-        //app.globalData.akashiData = res.data.data;
-        //console.log("globalData" + app.globalData.akashiData);
-        var arrs = [];
-        var obj = [];
-        var tmp = {};
-        var list = [];
-        var count = 0;
-        var isAdd = false;
-        for (var i in json) {
-          isAdd = false;
-          count++;
-          obj = [];
-          tmp = { id: i };
-          obj.push(tmp);
-          tmp = { title: json[i] };
-          obj.push(tmp);
-          arrs.push(obj);
-          //console.log(json[i]);
-          if (count % 4 == 0) {
-            list.push(arrs);
-            arrs = [];
-            isAdd = true;
-          }
-        };
-        if (!isAdd) {
-          list.push(arrs);
+        else if ( res.data.status == "error" ) {
+          //获取接口数据出错
+          console.log(res.errMsg);
+          wx.showToast({
+            title:'数据获取出错',
+          })
         }
-        //console.log(list);
-        that.setData({
-          akashitypeView: list,
-          akashitypeTableShowView: true
-        })
       },
     })
+  },
+  onLoad: function () {
+    this.getData();
+    // var that = this;
+    // that.setData({
+    //   akashitypeTitleView: '请选择装备类型'
+    // })
+    // wx.request({
+    //   url: 'https://wx.kcwiki.org/query',
+    //   //url: 'http://localhost:8080/WebApplication2/query',
+    //   data: {
+    //     query: 'akashitype',
+    //   },
+    //   method: 'POST',
+    //   header: {
+    //     //'content-type': 'application/json', (GET模式才能用)
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //   },
+    //   success: function (res) {
+    //     if (res.data.status != "success") {
+    //       //console.log("query failed" + res.data.data);
+    //       return;
+    //     }
+    //     var json = res.data.data;
+    //     //app.globalData.akashiData = res.data.data;
+    //     //console.log("globalData" + app.globalData.akashiData);
+    //     var arrs = [];
+    //     var obj = [];
+    //     var tmp = {};
+    //     var list = [];
+    //     var count = 0;
+    //     var isAdd = false;
+    //     for (var i in json) {
+    //       isAdd = false;
+    //       count++;
+    //       obj = [];
+    //       tmp = { id: i };
+    //       obj.push(tmp);
+    //       tmp = { title: json[i] };
+    //       obj.push(tmp);
+    //       arrs.push(obj);
+    //       //console.log(json[i]);
+    //       if (count % 4 == 0) {
+    //         list.push(arrs);
+    //         arrs = [];
+    //         isAdd = true;
+    //       }
+    //     };
+    //     if (!isAdd) {
+    //       list.push(arrs);
+    //     }
+    //     //console.log(list);
+    //     that.setData({
+    //       akashitypeView: list,
+    //       akashitypeTableShowView: true
+    //     })
+    //   },
+    // })
   },
 
   gettype: function getitem(e) {
@@ -183,7 +212,7 @@ Page({
           var resourcelist = [];
           var count = 0;
           var isAdd = false;
-          
+
           for (var i in json) {
             var item = json[i];
             arrs = [];
