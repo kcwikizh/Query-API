@@ -1,25 +1,26 @@
 const app = getApp();
+import {apiBase} from '../../config/config'
 var imageUtil = require('../../utils/util.js');
+// var akashilistView;
+// var akashilistTableShowView;
+// var akashiitemView;
+// var akashiitemTableShowView;
 
-var akashilistView;
-var akashilistTableShowView;
-var akashiitemView;
-var akashiitemTableShowView;
-
-// Register a Page.
 Page({
   data: {
-    akashilistView,
-    akashilistTableShowView,
-    akashiitemView,
-    akashiitemTableShowView,
+    // akashilistView,
+    // akashilistTableShowView,
+    // akashiitemView,
+    // akashiitemTableShowView,
     pageData:{},
+    itemData:{}
   },
-  getData: function(){
+  getDetail: function( event ){
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: `${apiBase}/query`,
       data: {
-        query: 'akashitype'
+        query: 'akashilist',
+        type: event.currentTarget.id,
       },
       method: 'POST',
       header: {
@@ -28,7 +29,34 @@ Page({
       },
       success: (res) => {
         if (res.data.status == "success") {
-
+          console.log(res.data);
+          this.setData({
+            itemData: res.data.data
+          });
+        }
+        else if ( res.data.status == "error" ) {
+          //获取接口数据出错
+          console.log(res.errMsg);
+          wx.showToast({
+            title:'数据获取出错',
+          })
+        }
+      },
+    })
+  },
+  getData: function(){
+    wx.request({
+      url: `${apiBase}/query`,
+      data: {
+        query: `akashitype`
+      },
+      method: 'POST',
+      header: {
+        //'content-type': 'application/json', (GET模式才能用)
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: (res) => {
+        if (res.data.status == "success") {
           this.setData({
             pageData: res.data.data
           });
