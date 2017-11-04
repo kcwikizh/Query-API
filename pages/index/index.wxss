@@ -1,5 +1,4 @@
 // /**index.wxss**/
-@import "../../style/baseStyle.wxss";
 .nav{
   width: 100%;
 }

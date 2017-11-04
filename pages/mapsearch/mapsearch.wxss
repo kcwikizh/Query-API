@@ -1,5 +1,4 @@
 /**poidb.wxss**/
-@import "../../style/baseStyle.wxss";
 
 .title{
   display:block;
