@@ -13,7 +13,37 @@ Page({
     // akashiitemView,
     // akashiitemTableShowView,
     pageData:{},
-    itemData:{}
+    itemData:{},
+    itemDetaildata:{}
+  },
+  getMoreDetail: function( event ){
+    wx.request({
+      url: `${apiBase}/query`,
+      data: {
+        query: 'akashiitem',
+        wid: event.currentTarget.id,
+      },
+      method: 'POST',
+      header: {
+        //'content-type': 'application/json', (GET模式才能用)
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: (res) => {
+        if (res.data.status == "success") {
+          console.log(res.data);
+          this.setData({
+            itemDetaildata: res.data.data
+          });
+        }
+        else if ( res.data.status == "error" ) {
+          //获取接口数据出错
+          console.log(res.errMsg);
+          wx.showToast({
+            title:'数据获取出错',
+          })
+        }
+      },
+    })
   },
   getDetail: function( event ){
     wx.request({
@@ -73,61 +103,6 @@ Page({
   },
   onLoad: function () {
     this.getData();
-    // var that = this;
-    // that.setData({
-    //   akashitypeTitleView: '请选择装备类型'
-    // })
-    // wx.request({
-    //   url: 'https://wx.kcwiki.org/query',
-    //   //url: 'http://localhost:8080/WebApplication2/query',
-    //   data: {
-    //     query: 'akashitype',
-    //   },
-    //   method: 'POST',
-    //   header: {
-    //     //'content-type': 'application/json', (GET模式才能用)
-    //     "Content-Type": "application/x-www-form-urlencoded",
-    //   },
-    //   success: function (res) {
-    //     if (res.data.status != "success") {
-    //       //console.log("query failed" + res.data.data);
-    //       return;
-    //     }
-    //     var json = res.data.data;
-    //     //app.globalData.akashiData = res.data.data;
-    //     //console.log("globalData" + app.globalData.akashiData);
-    //     var arrs = [];
-    //     var obj = [];
-    //     var tmp = {};
-    //     var list = [];
-    //     var count = 0;
-    //     var isAdd = false;
-    //     for (var i in json) {
-    //       isAdd = false;
-    //       count++;
-    //       obj = [];
-    //       tmp = { id: i };
-    //       obj.push(tmp);
-    //       tmp = { title: json[i] };
-    //       obj.push(tmp);
-    //       arrs.push(obj);
-    //       //console.log(json[i]);
-    //       if (count % 4 == 0) {
-    //         list.push(arrs);
-    //         arrs = [];
-    //         isAdd = true;
-    //       }
-    //     };
-    //     if (!isAdd) {
-    //       list.push(arrs);
-    //     }
-    //     //console.log(list);
-    //     that.setData({
-    //       akashitypeView: list,
-    //       akashitypeTableShowView: true
-    //     })
-    //   },
-    // })
   },
 
   gettype: function getitem(e) {
@@ -192,7 +167,7 @@ Page({
   getitem: function getitem(e) {
     var that = this;
     var wid = String(e.currentTarget.dataset.index);
-    //console.log(wid);
+    // console.log(wid);
 
     var json = app.globalData.akashiData;
     //console.log(json);

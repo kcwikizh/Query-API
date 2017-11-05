@@ -14,8 +14,8 @@
 
 <view class="side-content">
   <block wx:for="{{itemData}}">
-    <view>
-      <span>
+    <view bindtap="getMoreDetail" id="{{index}}" class="content-item">
+      <span class="content-item-span">
         {{item.title}}
       </span>
     </view>

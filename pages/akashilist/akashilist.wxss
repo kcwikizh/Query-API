@@ -1,5 +1,5 @@
 .scroll-wrapper{
-  width: 30%;
+  width: 20%;
   display: inline-block;
   margin: auto;
 }
@@ -25,9 +25,22 @@
   position: fixed;
   top: 0;
   display: inline-block;
-  width: 70%;
+  width: 80%;
   vertical-align: top;
 }
+
+.content-item{
+  padding: 5px 0px 5px 10px;
+  background-color: #ddd;
+  margin-bottom: 5px;
+}
+
+.content-item-span{
+  font-size: 16px;
+  color: #333;
+
+}
+
 
 .navi{
   text-align: center;
