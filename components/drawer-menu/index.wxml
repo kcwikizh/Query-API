@@ -1,0 +1,5 @@
+<template name="iot-drawer-menu">
+  <view class="zan-toast">
+    111
+  </view>
+</template>
