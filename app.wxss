@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import "./components/drawer-menu/index.wxss";
 page{
   height: 100%;
 }
