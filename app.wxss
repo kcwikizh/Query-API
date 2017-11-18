@@ -2,7 +2,9 @@
 @import "./components/drawer-menu/index.wxss";
 page{
   height: 100%;
+  width: 100%;
 }
+
 
 .content{
   background-color:#edeaea;

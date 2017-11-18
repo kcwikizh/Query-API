@@ -10,20 +10,26 @@
     </block>
   </view>
 </scroll-view> -->
-<button bindtap="openDrawer">
-  点击展开菜单
-</button>
-<template is="iot-drawer" data="{{ pageData, iotDrawerOpen}}"></template>
+<scroll-view class="content" scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
+  <text class="page-title">请点击按钮选择装备改修分类</text>
+  <view class="page-content" >
+    <block wx:for="{{itemData}}">
+      <view bindtap="getMoreDetail" id="{{index}}" class="content-item">
+        <span class="content-item-span">
+          {{item.title}}
+        </span>
+      </view>
+    </block>
+  </view>
+  <button bindtap="openDrawer" type="primary" style="width:90%;margin-bottom:20px">
+    选择装备改修分类
+  </button>
+</scroll-view>
 
-<view class="side-content">
-  <block wx:for="{{itemData}}">
-    <view bindtap="getMoreDetail" id="{{index}}" class="content-item">
-      <span class="content-item-span">
-        {{item.title}}
-      </span>
-    </view>
-  </block>
-</view>
+
+<template is="iot-drawer" data="{{ pageData, iotDrawerOpen }}"></template>
+
+
 
 <!-- <view>
   <navigator url="/pages/thankslist/thankslist" hover-class="navigator-hover" class="navi">

@@ -6,7 +6,10 @@ Page(Object.assign({}, iotDrawer, {
   data: {
     pageData:{},
     itemData:{},
-    itemDetaildata:{}
+    itemDetaildata:{},
+  },
+  selectItem: function(event){
+    this.getDetail(event);
   },
   openDrawer: function(){
     console.log('打开抽屉菜单');
@@ -30,6 +33,7 @@ Page(Object.assign({}, iotDrawer, {
           this.setData({
             itemDetaildata: res.data.data
           });
+          this.closeIotDrawer();
         }
         else if ( res.data.status == "error" ) {
           //获取接口数据出错
@@ -38,7 +42,7 @@ Page(Object.assign({}, iotDrawer, {
             title:'数据获取出错',
           })
         }
-      },
+      }
     })
   },
   getDetail: function( event ){
@@ -59,6 +63,7 @@ Page(Object.assign({}, iotDrawer, {
           this.setData({
             itemData: res.data.data
           });
+          this.closeIotDrawer();
         }
         else if ( res.data.status == "error" ) {
           //获取接口数据出错
