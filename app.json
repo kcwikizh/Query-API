@@ -5,6 +5,7 @@
     "pages/poidb/poidb",
     "pages/expedition/expedition",
     "pages/akashilist/akashilist",
+    "pages/akashi-equip-detail/akashi-equip-detail",
     "pages/thankslist/thankslist"
   ],
   "window":{

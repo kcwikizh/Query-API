@@ -47,6 +47,10 @@ page{
   align-items: center;
 }
 
+.iot-list-item-hover{
+  background-color: #f5f5f5;
+}
+
 .iot-list-item::after{
   content: '';
   display: block;

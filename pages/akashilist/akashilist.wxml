@@ -11,10 +11,11 @@
   </view>
 </scroll-view> -->
 <scroll-view class="content" scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
-  <text class="page-title">请点击按钮选择装备改修分类</text>
+  <text class="page-title" wx:if="{{!itemData}}">请选择装备改修分类</text>
   <view class="page-content" >
     <block wx:for="{{itemData}}">
-      <view bindtap="getMoreDetail" id="{{index}}" class="content-item">
+      <view bindtap="toDetail" id="{{index}}" class="content-item" hover-class="content-item-hover">
+        <image src="{{item.imgurl}}" lazy-load="true" style="width:50px;height:50px"></image>
         <span class="content-item-span">
           {{item.title}}
         </span>

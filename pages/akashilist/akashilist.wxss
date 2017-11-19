@@ -23,12 +23,18 @@
 .content-item{
   padding: 10px 0px 10px 20px;
   border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.content-item-hover{
+  background-color: #f5f5f5;
 }
 
 .content-item-span{
   font-size: 16px;
   color: #333;
-
+  margin-left: 20px;
 }
 
 

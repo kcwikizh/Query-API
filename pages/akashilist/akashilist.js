@@ -5,7 +5,7 @@ var iotDrawer = require('../../components/drawer-menu/index.js');
 Page(Object.assign({}, iotDrawer, {
   data: {
     pageData:{},
-    itemData:{},
+    itemData:null,
     itemDetaildata:{},
   },
   selectItem: function(event){
@@ -15,36 +15,42 @@ Page(Object.assign({}, iotDrawer, {
     console.log('打开抽屉菜单');
     this.openIotDrawer();
   },
-  getMoreDetail: function( event ){
-    wx.request({
-      url: `${apiBase}/query`,
-      data: {
-        query: 'akashiitem',
-        wid: event.currentTarget.id,
-      },
-      method: 'POST',
-      header: {
-        //'content-type': 'application/json', (GET模式才能用)
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      success: (res) => {
-        if (res.data.status == "success") {
-          console.log(res.data);
-          this.setData({
-            itemDetaildata: res.data.data
-          });
-          this.closeIotDrawer();
-        }
-        else if ( res.data.status == "error" ) {
-          //获取接口数据出错
-          console.log(res.errMsg);
-          wx.showToast({
-            title:'数据获取出错',
-          })
-        }
-      }
+  toDetail:function( event ){
+    var id = event.currentTarget.id;
+    wx.navigateTo({
+      url: `/pages/akashi-equip-detail/akashi-equip-detail?wid=${id}`
     })
   },
+  // getMoreDetail: function( event ){
+  //   wx.request({
+  //     url: `${apiBase}/query`,
+  //     data: {
+  //       query: 'akashiitem',
+  //       wid: event.currentTarget.id,
+  //     },
+  //     method: 'POST',
+  //     header: {
+  //       //'content-type': 'application/json', (GET模式才能用)
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //     success: (res) => {
+  //       if (res.data.status == "success") {
+  //         console.log(res.data);
+  //         this.setData({
+  //           itemDetaildata: res.data.data
+  //         });
+  //         this.closeIotDrawer();
+  //       }
+  //       else if ( res.data.status == "error" ) {
+  //         //获取接口数据出错
+  //         console.log(res.errMsg);
+  //         wx.showToast({
+  //           title:'数据获取出错',
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
   getDetail: function( event ){
     wx.request({
       url: `${apiBase}/query`,
