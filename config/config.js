@@ -2,5 +2,5 @@
 
 module.exports = {
   localStoragePrefix: 'localStorageNameSpace',
-  apiBase: 'https://wx.kcwiki.org'
+  apiBase: 'https://exp.wx.kcwiki.org'
 }

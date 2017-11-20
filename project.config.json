@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": false,
 		"minified": true
@@ -12,13 +12,19 @@
 	"projectname": "KcWiki%E6%9F%A5%E8%AF%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"condition": {
 		"weapp": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "感谢列表",
 					"pathName": "pages/thankslist/thankslist",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "装备详情",
+					"pathName": "pages/akashi-equip-detail/akashi-equip-detail",
+					"query": "wid=w015"
 				}
 			]
 		},

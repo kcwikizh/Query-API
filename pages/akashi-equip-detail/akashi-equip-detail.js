@@ -20,10 +20,21 @@ Page(Object.assign({}, {}, {
       },
       success: (res) => {
         if (res.data.status == "success") {
-          console.log(res.data);
-          this.setData({
-            itemDetaildata: res.data.data
+          // console.log(res.data);
+          console.log();
+          Object.keys(res.data.data.status).forEach((value) =>{
+            res.data.data.status[value] = res.data.data.status[value].filter((value, index) =>{
+              return index < 10;
+            });
           });
+          console.log(res.data.data.status);
+          // .keys.filter((value, index) => {
+          //   return
+          // });
+          this.setData({
+            pageData: res.data.data
+          });
+
         }
         else if ( res.data.status == "error" ) {
           //获取接口数据出错

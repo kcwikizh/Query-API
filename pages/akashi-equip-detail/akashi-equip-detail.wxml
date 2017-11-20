@@ -1,3 +1,10 @@
 <view>
-
+  <block wx:for="{{pageData.status}}">
+    <span>
+      {{index}}
+    </span>
+    <span wx:for="{{item}}">
+      {{item}}
+    </span>
+  </block>
 </view>
