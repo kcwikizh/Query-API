@@ -22,7 +22,7 @@ Page({
   },
   getData: function(){
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: 'https://exp.wx.kcwiki.org/query',
       data: {
         query: 'mapfast'
       },
@@ -55,7 +55,7 @@ Page({
     //   areaTitleView: '各大海域'
     // })
     // wx.request({
-    //   url: 'https://wx.kcwiki.org/query',
+    //   url: 'https://exp.wx.kcwiki.org/query',
     //   data: {
     //     query: 'mapfast'
     //   },
@@ -111,7 +111,7 @@ Page({
 
     if (app.globalData.mapfastData == null) {
       wx.request({
-        url: 'https://wx.kcwiki.org/query',
+        url: 'https://exp.wx.kcwiki.org/query',
         data: {
           query: 'mapfast'
         },

@@ -19,7 +19,7 @@ Page({
       areaTitleView: '各大海域'
     })
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: 'https://exp.wx.kcwiki.org/query',
       data: {
         query: 'expedition'
       },
@@ -75,7 +75,7 @@ Page({
 
     if (app.globalData.expeditionData == null) {
       wx.request({
-        url: 'https://wx.kcwiki.org/query',
+        url: 'https://exp.wx.kcwiki.org/query',
         data: {
           query: 'expedition'
         },
@@ -111,8 +111,8 @@ Page({
 
             var pointjson = json[i];
             str = "\n" + "编号 :" + i;
-            if (pointjson.japanese != "null") {
-              str = str + "\n" + "日语名称 :" + pointjson.japanese;
+            if (pointjson.ja != "null") {
+              str = str + "\n" + "日语名称 :" + pointjson.ja;
             };
             if (pointjson.time != "null") {
               str = str + "\n" + "远征时间 :" + pointjson.time;
@@ -126,23 +126,23 @@ Page({
             if (pointjson.steel != "null") {
               str = str + "\n" + "获得钢材 :" + pointjson.steel;
             };
-            if (pointjson.aluminum != "null") {
-              str = str + "\n" + "获得铝材 :" + pointjson.aluminum;
+            if (pointjson.bauxite != "null") {
+              str = str + "\n" + "获得铝材 :" + pointjson.bauxite;
             };
-            if (pointjson.fleetlevel != "null") {
-              str = str + "\n" + "舰队总等级 :" + pointjson.fleetlevel;
+            if (pointjson.lvsum != "null") {
+              str = str + "\n" + "舰队总等级 :" + pointjson.lvsum;
             };
-            if (pointjson.flagshiplevel != "null") {
-              str = str + "\n" + "旗舰等级 :" + pointjson.flagshiplevel;
+            if (pointjson.lvfs != "null") {
+              str = str + "\n" + "旗舰等级 :" + pointjson.lvfs;
             };
-            if (pointjson.lowcount != "null") {
-              str = str + "\n" + "最低舰娘数 :" + pointjson.lowcount;
+            if (pointjson.size != "null") {
+              str = str + "\n" + "最低舰娘数 :" + pointjson.size;
             };
-            if (pointjson.appointedship != "null") {
-              str = str + "\n" + "必需舰娘 :" + pointjson.appointedship;
+            if (pointjson.comp != "null") {
+              str = str + "\n" + "必需舰娘 :" + pointjson.comp;
             };
-            if (pointjson.bucket != "null") {
-              str = str + "\n" + "运输桶 :" + pointjson.bucket;
+            if (pointjson.drum != "null") {
+              str = str + "\n" + "运输桶 :" + pointjson.drum;
             };
             if (pointjson.reward != "null") {
               str = str + "\n" + "随机奖励 :" + pointjson.reward;
@@ -195,7 +195,7 @@ Page({
         var pointjson = json[i];
         str = "\n" + "编号 :" + i;
         if (pointjson.japanese != "null") {
-          str = str + "\n" + "日语名称 :" + pointjson.japanese ;
+          str = str + "\n" + "日语名称 :" + pointjson.ja ;
         };
         if (pointjson.time != "null") {
           str = str + "\n" + "远征时间 :" + pointjson.time ;
@@ -224,35 +224,35 @@ Page({
             str = str + "\n" + "获得钢材 :" + pointjson.steel;
           }
         };
-        if (pointjson.aluminum != "null") {
+        if (pointjson.bauxite != "null") {
           if (!blank) {
-            str = str + "\n\n" + "获得铝材 :" + pointjson.aluminum;
+            str = str + "\n\n" + "获得铝材 :" + pointjson.bauxite;
             blank = true;
           } else {
-            str = str + "\n" + "获得铝材 :" + pointjson.aluminum;
+            str = str + "\n" + "获得铝材 :" + pointjson.bauxite;
           }
         };
         blank = false;
-        if (pointjson.fleetlevel != "null") {
-          str = str + "\n\n" + "舰队总等级 :" + pointjson.fleetlevel ;
+        if (pointjson.lvsum != "null") {
+          str = str + "\n\n" + "舰队总等级 :" + pointjson.lvsum ;
           blank = true;
         };
-        if (pointjson.flagshiplevel != "null") {
+        if (pointjson.lvfs != "null") {
           if (blank) {
-            str = str + "\n" + "旗舰等级 :" + pointjson.flagshiplevel;
+            str = str + "\n" + "旗舰等级 :" + pointjson.lvfs;
             blank = false;
           } else {
-            str = str + "\n\n" + "旗舰等级 :" + pointjson.flagshiplevel;
+            str = str + "\n\n" + "旗舰等级 :" + pointjson.lvfs;
           }
         };
-        if (pointjson.lowcount != "null") {
-            str = str + "\n" + "最低舰娘数 :" + pointjson.lowcount;
+        if (pointjson.size != "null") {
+          str = str + "\n" + "最低舰娘数 :" + pointjson.size;
         };
-        if (pointjson.appointedship != "null") {
-          str = str + "\n" + "必需舰娘 :" + pointjson.appointedship ;
+        if (pointjson.comp != "null") {
+          str = str + "\n" + "必需舰娘 :" + pointjson.comp ;
         };
-        if (pointjson.bucket != "null") {
-          str = str + "\n" + "运输桶 :" + pointjson.bucket ;
+        if (pointjson.drum != "null") {
+          str = str + "\n" + "运输桶 :" + pointjson.drum ;
         };
         if (pointjson.reward != "null") {
           str = str + "\n\n" + "随机奖励 :" + pointjson.reward ;

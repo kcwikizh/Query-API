@@ -12,10 +12,19 @@
                   方案{{index+1}}：
                 </span>
                 <span class="item-content">
-                  推荐配置：{{item.recommended}}
+                  敌方制空：{{item.efp}}
                 </span>
                 <span class="item-content">
-                  带路条件：{{item.guideline}}
+                  空优：{{item.as}}
+                </span>
+                <span class="item-content">
+                  空确：{{item.asplus}}
+                </span>
+                <span class="item-content">
+                  推荐配置：{{item.rec}}
+                </span>
+                <span class="item-content">
+                  带路条件：{{item.guide}}
                 </span>
               </view>
             </block>
