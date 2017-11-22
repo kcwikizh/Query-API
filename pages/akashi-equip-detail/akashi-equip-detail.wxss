@@ -1,0 +1,38 @@
+.scale {
+  display: block;
+  margin:10px 0;
+}
+.scale-label{
+  display: inline-block;
+  padding: 5px 0;
+  margin: 0 5px;
+  text-align: center;
+  width: 30%;
+  background-color: #3d4456;
+  transform: skew(-20deg);
+}
+.scale-label > span{
+  display: block;
+  transform: skew(20deg);
+  color: #fff;
+  font-size: 16px;
+}
+.scale-wrapper{
+  width: 100%;
+  margin-top: 2px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scale-content{
+  font-size: 14px;
+  width: 50px;
+  text-align: center;
+  display: inline-block;
+}
+.scale-line{
+  white-space: nowrap;
+  display: block;
+}
+::-webkit-scrollbar {
+  display: none;
+}

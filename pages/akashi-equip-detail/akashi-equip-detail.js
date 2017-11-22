@@ -5,6 +5,7 @@ import {apiBase} from '../../config/config'
 Page(Object.assign({}, {}, {
   data: {
     pageData:{},
+    tab:'雷撃'
   },
   getMoreDetail: function( wid ){
     wx.request({
@@ -21,16 +22,13 @@ Page(Object.assign({}, {}, {
       success: (res) => {
         if (res.data.status == "success") {
           // console.log(res.data);
-          console.log();
+
           Object.keys(res.data.data.status).forEach((value) =>{
             res.data.data.status[value] = res.data.data.status[value].filter((value, index) =>{
               return index < 10;
             });
           });
-          console.log(res.data.data.status);
-          // .keys.filter((value, index) => {
-          //   return
-          // });
+          console.log(res.data.data);
           this.setData({
             pageData: res.data.data
           });

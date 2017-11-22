@@ -1,10 +1,21 @@
-<view>
-  <block wx:for="{{pageData.status}}">
-    <span>
-      {{index}}
-    </span>
-    <span wx:for="{{item}}">
-      {{item}}
-    </span>
-  </block>
+<view >
+    <view class="scale">
+      <view class="scale-label" wx:for="{{pageData.status}}">
+        <span>{{index}}</span>
+      </view>
+      <block wx:for="{{pageData.status}}">
+        <view class="scale-wrapper" wx-if="{{index == tab}}">
+          <view class="scale-line">
+            <span wx:for="{{item}}" class="scale-content">
+              ★ {{index+1}}
+            </span>
+          </view>
+          <view class="scale-line">
+            <span wx:for="{{item}}" class="scale-content">
+              {{item}}
+            </span>
+          </view>
+        </view>
+      </block>
+    </view>
 </view>

@@ -12,19 +12,19 @@
                   方案{{index+1}}：
                 </span>
                 <span class="item-content">
-                  敌方制空：{{item.efp}}
+                  敌方制空：{{item.efp == 'null' ? '无制空':item.efp}}
                 </span>
                 <span class="item-content">
-                  空优：{{item.as}}
+                  空优：{{item.as == 'null' ? '任意':item.as}}
                 </span>
                 <span class="item-content">
-                  空确：{{item.asplus}}
+                  空确：{{item.asplus == 'null' ? '任意':item.asplus}}
                 </span>
                 <span class="item-content">
-                  推荐配置：{{item.rec}}
+                  推荐配置：{{item.rec == 'null' ? '暂无':item.rec}}
                 </span>
                 <span class="item-content">
-                  带路条件：{{item.guide}}
+                  带路条件：{{item.guide == 'null' ? '暂无':item.guide}}
                 </span>
               </view>
             </block>
