@@ -1,27 +1,70 @@
 .scale {
   display: block;
   margin:10px 0;
+  position: relative;
 }
 .scale-label{
-  display: inline-block;
+  display: block;
   padding: 5px 0;
-  margin: 0 5px;
   text-align: center;
   width: 30%;
   background-color: #3d4456;
   transform: skew(-20deg);
+  margin: auto;
 }
 .scale-label > span{
   display: block;
   transform: skew(20deg);
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 .scale-wrapper{
   width: 100%;
   margin-top: 2px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+@keyframes wiggle {
+  0%{
+    transform: translateX(0px);
+  }
+  25%{
+    transform: translateX(-1px);
+  }
+  50%{
+    transform: translateX(0px);
+  }
+  75%{
+    transform: translateX(1px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+.scale-right-arrow::after{
+  content: '';
+  width:0;
+  height:0;
+  border-top:8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 10px solid #3d4456;
+  animation: wiggle 1s ease-in infinite;
+  position: absolute;
+  right: -10px;
+  bottom: 16px;
+}
+.scale-right-arrow::before{
+  content: '';
+  width:0;
+  height:0;
+  border-top:8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 10px solid #3d4456;
+  animation: wiggle 1s ease infinite;
+  position: absolute;
+  left: -10px;
+  bottom: 16px;
 }
 .scale-content{
   font-size: 14px;

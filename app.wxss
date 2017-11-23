@@ -5,6 +5,10 @@ page{
   width: 100%;
 }
 
+.padding {
+  padding:15px;
+}
+
 
 .content{
   background-color:#edeaea;

@@ -5,7 +5,7 @@ import {apiBase} from '../../config/config'
 Page(Object.assign({}, {}, {
   data: {
     pageData:{},
-    tab:'雷撃'
+    // tab:''
   },
   getMoreDetail: function( wid ){
     wx.request({
@@ -23,7 +23,11 @@ Page(Object.assign({}, {}, {
         if (res.data.status == "success") {
           // console.log(res.data);
 
-          Object.keys(res.data.data.status).forEach((value) =>{
+          Object.keys(res.data.data.status).forEach((value, index) =>{
+            console.log(index);
+            if (index == 0) {
+
+            }
             res.data.data.status[value] = res.data.data.status[value].filter((value, index) =>{
               return index < 10;
             });
