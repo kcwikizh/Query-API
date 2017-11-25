@@ -22,9 +22,7 @@ Page(Object.assign({}, {}, {
       success: (res) => {
         if (res.data.status == "success") {
           // console.log(res.data);
-
           Object.keys(res.data.data.status).forEach((value, index) =>{
-            console.log(index);
             if (index == 0) {
 
             }

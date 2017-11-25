@@ -19,25 +19,92 @@
       </block>
     </view>
 </view> -->
-<view class="padding">
-  <block wx:for="{{pageData.status}}">
-    <view class="scale">
-        <view class="scale-label" >
-          <span>{{index}}</span>
-        </view>
-        <view class="scale-wrapper">
-          <view class="scale-line">
-            <span wx:for="{{item}}" class="scale-content">
-              ★ {{index+1}}
-            </span>
-          </view>
-          <view class="scale-line">
-            <span wx:for="{{item}}" class="scale-content">
-              {{item}}
-            </span>
-          </view>
-        </view>
-        <div class="scale-right-arrow"></div>
+<scroll-view class="scroll-view" scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
+  <view class="padding">
+    <Text class="page-title">今日改修秘书舰：</Text>
+    <view wx:for="{{pageData.supportShip}}" class="support-ship">
+      <span>{{item.name}}</span>
+      <image src="{{item.imgurl}}" mode="aspectFill"></image>
     </view>
-  </block>
-</view>
+    <block wx:for="{{pageData.status}}">
+      <view class="scale">
+          <view class="scale-label" >
+            <span>{{index}}</span>
+          </view>
+          <view class="scale-wrapper">
+            <view class="scale-line">
+              <span wx:for="{{item}}" class="scale-content">
+                ★ {{index+1}}
+              </span>
+            </view>
+            <view class="scale-line">
+              <span wx:for="{{item}}" class="scale-content">
+                {{item}}
+              </span>
+            </view>
+          </view>
+          <div class="scale-right-arrow"></div>
+      </view>
+    </block>
+
+    <view class="table-title" style="margin-top:30px;">
+      <span>改修明细表</span>
+    </view>
+    <table class="footage-table">
+      <tr>
+        <td class="cell-head">
+          ★
+        </td>
+        <td class="cell">
+          开发资材
+        </td>
+        <td class="cell">
+          改修资材
+        </td>
+        <td class="cell">
+          消费装备
+        </td>
+      </tr>
+      <tr>
+        <td class="cell-head">
+          0 ~ 5
+        </td>
+        <block wx:for="{{pageData.resource.level1}}">
+          <td class="cell">
+            {{item}}
+          </td>
+        </block>
+      </tr>
+      <tr>
+        <td class="cell-head">
+          6 ~ 9
+        </td>
+        <block wx:for="{{pageData.resource.level2}}">
+          <td class="cell">
+            {{item}}
+          </td>
+        </block>
+      </tr>
+      <tr>
+        <td class="cell-head">
+          MAX
+        </td>
+        <block wx:for="{{pageData.resource.MAX}}">
+          <td class="cell">
+            {{item}}
+          </td>
+        </block>
+      </tr>
+    </table>
+
+    <view class="table-title" style="margin-top:30px;">
+      <span>资源消耗</span>
+    </view>
+    <view style="margin-top:10px;">
+      <span class="res res-fuel">油：{{pageData.resource.basecost.fuel}}</span>
+      <span class="res res-ammo">弹：{{pageData.resource.basecost.ammo}}</span>
+      <span class="res res-steel">钢：{{pageData.resource.basecost.steel}}</span>
+      <span class="res res-bauxite">铝：{{pageData.resource.basecost.bauxite}}</span>
+    </view>
+  </view>
+</scroll-view>

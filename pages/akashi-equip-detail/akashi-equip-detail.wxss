@@ -46,10 +46,10 @@
   content: '';
   width:0;
   height:0;
-  border-top:8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 10px solid #3d4456;
-  animation: wiggle 1s ease-in infinite;
+  border-top:5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #3d4456;
+  /* animation: wiggle 1s ease-in infinite;*/
   position: absolute;
   right: -10px;
   bottom: 16px;
@@ -58,10 +58,10 @@
   content: '';
   width:0;
   height:0;
-  border-top:8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 10px solid #3d4456;
-  animation: wiggle 1s ease infinite;
+  border-top:5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #3d4456;
+  /* animation: wiggle 1s ease infinite;*/
   position: absolute;
   left: -10px;
   bottom: 16px;
@@ -78,4 +78,94 @@
 }
 ::-webkit-scrollbar {
   display: none;
+}
+.page-title{
+
+  font-weight: 500;
+}
+.support-ship{
+  width: 100%;
+  margin: 10px 0px;
+  display: block;
+}
+.support-ship > image {
+  width: 100%;
+  height: 50px;
+  border-radius: 0px 0px 5px 5px;
+}
+.support-ship > span {
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  background-color: #3d4456;
+  border-radius: 5px 5px 0 0;
+}
+
+.table-title{
+  display: block;
+  padding: 5px 0;
+  text-align: center;
+  width: 30%;
+  background-color: #3d4456;
+  transform: skew(-20deg);
+  margin: auto;
+}
+.table-title > span{
+  display: block;
+  transform: skew(20deg);
+  color: #fff;
+  font-size: 14px;
+}
+
+.footage-table {
+  display: block;
+  margin-top: 10px;
+}
+.footage-table tr {
+  width: 100%;
+  display: block;
+}
+.footage-table .cell {
+  font-size: 14px;
+  width:30%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.footage-table .cell-head {
+  font-size: 14px;
+  width: 10%;
+  display: inline-block;
+  text-align: left;
+}
+.res {
+  font-size: 14px;
+  width: 25%;
+  display:inline-block;
+}
+/*
+.res::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding-left: 24px;
+  background-repeat: no-repeat;
+  background-image: url('');
+}
+.res-fuel::before{
+  background-position:0px 0px;
+}
+.res-ammo::before{
+  background-position:0px 0px;
+}
+.res-steel::before{
+  background-position:0px 0px;
+}
+.res-bauxite::before{
+  background-position:0px 0px;
 }

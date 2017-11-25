@@ -9,6 +9,9 @@ page{
   padding:15px;
 }
 
+.scroll-view{
+  height:100%
+}
 
 .content{
   background-color:#edeaea;
