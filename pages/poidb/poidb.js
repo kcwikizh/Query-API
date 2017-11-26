@@ -56,7 +56,7 @@ Page({
       areaTitleView: '各大海域'
     })
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: 'https://exp.wx.kcwiki.org/query',
       data:{
         query: 'area'
       },
@@ -118,7 +118,7 @@ Page({
     BossPoint = null;
     if (app.globalData.areaData == null){
       wx.request({
-        url: 'https://wx.kcwiki.org/query',
+        url: 'https://exp.wx.kcwiki.org/query',
         data: {
           query: 'area'
         },
@@ -266,7 +266,7 @@ Page({
     //console.log("123"+ "\n")
     
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: 'https://exp.wx.kcwiki.org/query',
       data: {
         query: 'map',
         mapno: mapNo
@@ -333,7 +333,7 @@ Page({
     //console.log(pointNo);
     
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: 'https://exp.wx.kcwiki.org/query',
       data: {
         query: 'point',
         mapno: mapNo,
