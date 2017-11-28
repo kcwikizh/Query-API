@@ -52,6 +52,7 @@ Page(Object.assign({}, iotDrawer, {
   //   })
   // },
   getDetail: function( event ){
+
     wx.request({
       url: `${apiBase}/query`,
       data: {

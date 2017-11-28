@@ -4,10 +4,6 @@ App({
 
   },
   globalData: {
-    userInfo: null,
-    areaData:null,
-    expeditionData:null,
-    mapfastData:null,
-    akashiData: null
   }
+
 })

@@ -1,81 +1,54 @@
 //index.js
-//获取应用实例
 const app = getApp()
-
-
+import config from '../../config/config'
 Page({
   data: {
-    /**
-      * 页面配置
-      */
-    winWidth: 0,
-    winHeight: 0,
-    // tab切换
-    currentTab: 0,
-  },
 
+  },
   onLoad: function () {
-    var that = this;
-
-    /**
-     * 获取系统信息
-     */
-    wx.getSystemInfo({
-
-      success: function (res) {
-        that.setData({
-          winWidth: res.windowWidth,
-          winHeight: res.windowHeight
-        });
-      }
-    });
-  },
-
-  /**
-   * 滑动切换tab
-   */
-  bindChange: function (e) {
-
-    var that = this;
-    that.setData({ currentTab: e.detail.current });
-
-  },
-  /**
-   * 点击tab切换
-   */
-  swichNav: function (e) {
-
-    var that = this;
-
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current
-      })
-    }
-  },
-  /**
-  * 点击分享
-  */
-  onShareAppMessage: function () {
-    return {
-      title: '舰百小程序',
-      path: '/page/user?id=123'
-    }
-  },
-
-  navTo: function(e) {
-    var page = e.target.dataset.index.toString();
-    wx.navigateTo({
-      url: '../' + page + '/' + page
-    })
-  },
-
-  backTo: function (e) {
-    var page = e.target.dataset.index.toString();
-    wx.navigateTo({
-      url: '../' + page + '/' + page
+    wx.request({
+      url: 'https://wx.kcwiki.org/query',
+      data: {
+        query: 'mapfast'
+      },
+      method: 'POST',
+      header: {
+        //'content-type': 'application/json', (GET模式才能用)
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: (res) => {
+        if (res.data.status == "success") {
+          console.log(config);
+          config.setApiBase('https://wx.kcwiki.org');
+        }
+        else if ( res.data.status == "error" ) {
+          //获取接口数据出错
+          wx.request({
+            url: 'https://exp.wx.kcwiki.org/query',
+            data: {
+              query: 'mapfast'
+            },
+            method: 'POST',
+            header: {
+              //'content-type': 'application/json', (GET模式才能用)
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            success: (res) => {
+              if (res.data.status == "success") {
+                console.log('数据获取成功');
+                config.setApiBase('https://exp.wx.kcwiki.org');
+              }
+              else if ( res.data.status == "error" ) {
+                //获取接口数据出错
+                console.log(res.errMsg);
+                wx.showToast({
+                  title:'服务不可用',
+                })
+              }
+            },
+          })
+        }
+      },
     })
   },
 
