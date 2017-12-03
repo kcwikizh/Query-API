@@ -1,64 +1,47 @@
-
-<text> \r </text>
-<scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" > 
-<view class="{{areaTableShowView?'table':'hideView'}}">  
-
-  <view class="tr bg-w">  
-    <view class="th-title">{{areaTitleView}}</view>  
-  </view> 
-  <block  wx:for="{{areaDataView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="name">  
-     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
-      <view class="td-1" selectable="true" bindtap="getpoint" data-index="{{area[0][0].name}}" >
-          <text class="th-text" selectable="true" >{{area[0][0].name}}</text> 
-      </view>  
-      <view class="td-2" selectable="true" bindtap="getpoint" data-index="{{area[1][0].name}}">  
-          <text class="th-text" selectable="true" >{{area[1][0].name}}</text>  
-      </view>  
-    </view>  
-    <view class="tr bg-g2" wx:else>  
-      <view class="td-1" selectable="true" bindtap="getpoint" data-index="{{area[0][0].name}}">
-          <text class="th-text" selectable="true" >{{area[0][0].name}}</text>
-      </view>  
-      <view class="td-2" selectable="true" bindtap="getpoint" data-index="{{area[1][0].name}}" >  
-          <text class="th-text" selectable="true" >{{area[1][0].name}}</text>  
-      </view>  
-    </view>   
-  </block>  
-</view>  
-
-<block >
-</block>
-
-<view class="{{pointTableShowView?'table':'hideView'}}" id="pointTable" >  
-  <view class="tr bg-w" >  
-    <view class="th-title">{{pointTitleView}}</view>  
-  </view> 
-  <block  wx:for="{{pointDataView}}"  wx:for-index="areaidx" wx:for-item="area" wx:key="no">  
-     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
-      <view class="td-1" selectable="true"  data-index="{{area[0][1].id}}" style='word-break: break-all' >  
-          <text class="th-text" selectable="true" >{{area[0][1].data}}</text>  
-      </view>
-
-      <view class="td-2" selectable="true"  data-index="{{area[1][1].id}}" style='word-break: break-all' >  
-          <text class="th-text" selectable="true" >{{area[1][1].data}}</text>  
-      </view>
-    </view>  
-    <view class="tr bg-g2" wx:else>  
-      <view class="td-1" selectable="true"  data-index="{{area[0][1].id}}" style='word-break: break-all' >  
-          <text class="th-text" selectable="true" >{{area[0][1].data}}</text>  
-      </view>
-      <view class="td-2" selectable="true"  data-index="{{area[1][1].id}}" style='word-break: break-all' >  
-          <text class="th-text" selectable="true" >{{area[1][1].data}}</text>  
-      </view>
-    </view>   
-  </block>  
-</view>  
-
-<view style="height:100rpx;"></view>
-</scroll-view> 
-
-<view class="buttom">
-  <view style="height:100%;flex-direction: row;justify-content: center;  align-items: center;  font-size: 26rpx;display: flex;" >
-    <button size="mini" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center;  display: flex; width: 60%; height:80%;" bindtap="backTo" data-index="index"> 回到主页 </button>
-  </view>
-</view>
+<scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" >
+  <block wx:for="{{pageData}}">
+    <view class="box-wrapper">
+      <text class="title">{{index}}</text>
+      <block wx:for="{{item}}">
+        <view class="item-wrapper">
+          <text class="sub-title"  bindtap="showContent" id="{{index}}">{{index}}</text>
+          <view hidden="{{blockVisiable !== index}}"  class="item" >
+            <span class="item-content">
+              编号：{{item.id}}
+            </span>
+            <span class="item-content">
+              远征名称：{{item.ja == 'null' ? '无':item.ja}}
+            </span>
+            <span class="item-content">
+              远征时间：{{item.time == 'null' ? '无':item.time}}（分）
+            </span>
+            <span class="item-content">
+              获得资源：
+              {{item.fuel != 'null' ? '燃油 '+item.fuel:''}}
+              {{item.ammo  != 'null' ? '弹药 '+item.ammo:''}}
+              {{item.steel  != 'null' ? '钢材 '+item.steel:''}}
+              {{item.bauxite  != 'null' ? '铝 '+item.bauxite:''}}
+            </span>
+            <span class="item-content">
+              旗舰等级：{{item.lvfs == 'null' ? '暂无':item.lvfs}}
+            </span>
+            <span class="item-content">
+              最低舰娘数：{{item.size == 'null' ? '暂无':item.size}}
+            </span>
+            <span class="item-content">
+              必须舰娘：{{item.comp == 'null' ? '暂无':item.comp}}
+            </span>
+            <span class="item-content" wx:if="{{item.reward != 'null'}}">
+              随机奖励：
+              <block wx:for="{{item.reward}}" >
+                <span class="item-content">
+                  {{item}}
+                </span>
+              </block>
+            </span>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</scroll-view>

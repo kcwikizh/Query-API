@@ -7,7 +7,7 @@ Page({
   },
   onLoad: function () {
     wx.request({
-      url: 'https://wx.kcwiki.org/query',
+      url: 'https://exp.wx.kcwiki.org/query',
       data: {
         query: 'mapfast'
       },
@@ -19,12 +19,12 @@ Page({
       success: (res) => {
         if (res.data.status == "success") {
           console.log(config);
-          config.setApiBase('https://wx.kcwiki.org');
+          config.setApiBase('https://exp.wx.kcwiki.org');
         }
         else if ( res.data.status == "error" ) {
           //获取接口数据出错
           wx.request({
-            url: 'https://exp.wx.kcwiki.org/query',
+            url: 'https://wx.kcwiki.org/query',
             data: {
               query: 'mapfast'
             },
@@ -36,7 +36,7 @@ Page({
             success: (res) => {
               if (res.data.status == "success") {
                 console.log('数据获取成功');
-                config.setApiBase('https://exp.wx.kcwiki.org');
+                config.setApiBase('https://wx.kcwiki.org');
               }
               else if ( res.data.status == "error" ) {
                 //获取接口数据出错
