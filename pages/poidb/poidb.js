@@ -1,63 +1,28 @@
 
 const app = getApp();
-//var poidb = require('../../pages/poidb/poidb.js'); 
-var imageUtil = require('../../utils/util.js');
+import {apiBase} from '../../config/config'
 
-var helloData = {
-  name: 'WeChat'
-}
-var areaTitleView;
-var areaTableShowView = true;
-var pointTitleView;
-var mapImgView = null;
-var pointTableShowView = false;
-var rareShipView;
-var rareShipTitleView = "稀有船掉落率";
-var notrareShipView;
-var notrareShipTitleView = "非稀有船掉落率";
-var ShipTableShowView;
-var mapNo;
-var pointNo = null;
-var BossPoint;
-var difficulty = 3;
-var assessment = "SAB"
-var difficultyTableShowView = false;
-var images;
-
-// Register a Page.
 Page({
   data: {
-    areaTitleView,
-    areaTableShowView,
-    pointTitleView,
-    mapImgView, 
-    pointTableShowView,
-    rareShipView,
-    rareShipTitleView : '稀有船掉落率',
-    notrareShipView,
-    notrareShipTitleView : '非稀有船掉落率',
-    ShipTableShowView,
-    difficulty,
-    difficultyTableShowView,
-    pointNo,
-    BossPoint,
-    images: {}
+    pageData:[],
+    currentTab: 0
   },
-  changeName: function (e) {
-    // sent data change to view
+  clickTab: function(e){
+    // console.log(e);
     this.setData({
-      name: 'MINA'
+      currentTab: Number(e.currentTarget.dataset.current)
     })
   },
-
-  onLoad: function () {
-    var that = this;
-    that.setData({
-      areaTitleView: '各大海域'
+  swiperTab: function(e){
+    // console.log(e);
+    this.setData({
+      currentTab: Number(e.detail.current)
     })
+  },
+  getData: function(){
     wx.request({
-      url: 'https://exp.wx.kcwiki.org/query',
-      data:{
+      url: `${apiBase}/query`,
+      data: {
         query: 'area'
       },
       method: 'POST',
@@ -65,49 +30,38 @@ Page({
         //'content-type': 'application/json', (GET模式才能用)
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      success: function (res) {
-        if (res.data.status != "success"){
-          //console.log("query failed" + res.data.data);
-          return;
-        }
-        var json = res.data.data;
-        app.globalData.areaData = res.data.data;
-        var arrs = [];
-        var obj = [];
-        var tmp = {};
-        var list = [];
-        var count = 0;
-        var isAdd = false;
-        for (var i in json) {
-          isAdd = false;
-          count++;
-          obj = [];
-          var strs = [];
-          strs = i.split("-");
-          tmp = { no: strs[0] };
-          obj.push(tmp);
-          tmp = { name: strs[1] };
-          obj.push(tmp);
-          tmp = { data: json[i] };
-          obj.push(tmp);
-          arrs.push(obj);
-          if (count % 2 == 0) {
-            list.push(arrs);
-            arrs = [];
-            isAdd = true;
+      success: (res) => {
+        if (res.data.status == "success") {
+          console.log(res.data.data);
+          let index = 0
+          let normal = {}
+          let event = {}
+          for (let a in res.data.data) {
+            if (index < 6) {
+              normal[a] = (res.data.data[a])
+            }
+            else {
+              event[a] = (res.data.data[a])
+            }
+            index++;
           }
-        };
-        if (!isAdd) {
-          list.push(arrs);
+          this.setData({
+            pageData: [normal,event]
+          });
+          console.log(this.data);
         }
-        //console.log(list);
-        that.setData({
-          areaTitleView: '各大海域',
-          areaDataView: list,
-          areaTableShowView: true
-        })
+        else if ( res.data.status == "error" ) {
+          //获取接口数据出错
+          console.log(res.errMsg);
+          wx.showToast({
+            title:'数据获取出错',
+          })
+        }
       },
     })
+  },
+  onLoad: function () {
+    this.getData()
   },
 
   getarea: function getarea () {
@@ -264,7 +218,7 @@ Page({
       }
     };
     //console.log("123"+ "\n")
-    
+
     wx.request({
       url: 'https://exp.wx.kcwiki.org/query',
       data: {
@@ -331,7 +285,7 @@ Page({
     }
     //console.log(typeof index + "\n")
     //console.log(pointNo);
-    
+
     wx.request({
       url: 'https://exp.wx.kcwiki.org/query',
       data: {
@@ -339,7 +293,7 @@ Page({
         mapno: mapNo,
         point: pointNo,
         difficulty: difficulty,
-        assessment: assessment 
+        assessment: assessment
       },
       method: 'POST',
       header: {
@@ -380,7 +334,7 @@ Page({
           }
           //console.log(rarelist);
         }
-        
+
 
         arrs = [];
         count = 0;
@@ -418,67 +372,5 @@ Page({
     })
   },
 
-  imageLoad: function (e) {
-    var imageSize = imageUtil.imageUtil(e)
-    this.setData({
-      imagewidth: imageSize.imageWidth,
-      imageheight: imageSize.imageHeight
-    }) 
-  },
-
-setdifficulty: function setdifficulty (e) {
-    difficulty = e.currentTarget.dataset.index;
-    if (pointNo == null){
-      pointNo = BossPoint;
-      //console.log(BossPoint + "\tBossPoint \n");
-    }
-    //console.log(pointNo + "\n");
-    this.getpoint(null);
-  }, 
-
-setassessment: function setassessment (e) {
-  assessment = e.currentTarget.dataset.index;
-  //console.log(pointNo + "\tpointNo \n");
-    if(pointNo == null) {
-      pointNo = BossPoint;
-      //console.log(BossPoint + "\tBossPoint \n");
-    }
-    //console.log(pointNo + "\n");
-    this.getpoint(null);
-  },
-
-selectAreaOk: function (event) {
-  var selectAreaId = event.target.dataset.areaid;
-  var that = this
-  areaId = selectAreaId
-  for (var i = 0; i < this.data.areas.length; i++) {
-    if (this.data.areas[i].id == selectAreaId) {
-      this.data.areas[i].isSelect = true
-    } else {
-      this.data.areas[i].isSelect = false
-    }
-  }
-  this.setData({
-    areas: this.data.areas,
-    skus: [],
-    hideArea: true
-  })
-  getSkus(that, selectAreaId)
-},
-
-backTo: function (e) {
-  var page = e.target.dataset.index.toString();
-  wx.navigateTo({
-    url: '../' + page + '/' + page
-  })
-  },
-
-scrollToViewFn: function scrollToViewFn(view) {
-  //var _id = e.target.dataset.id;
-  this.setData({
-    toView: view
-  })
-  //console.log(this.data.toView)
-}, 
 
 })

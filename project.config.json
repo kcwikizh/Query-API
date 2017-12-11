@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -34,6 +34,11 @@
 					"name": "装备详情",
 					"pathName": "pages/akashi-equip-detail/akashi-equip-detail",
 					"query": "wid=w015"
+				},
+				{
+					"id": -1,
+					"name": "poi掉落",
+					"pathName": "pages/poidb/poidb"
 				}
 			]
 		}

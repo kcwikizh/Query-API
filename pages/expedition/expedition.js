@@ -1,4 +1,5 @@
 const app = getApp();
+import {apiBase} from '../../config/config'
 
 Page({
   data: {
@@ -13,7 +14,7 @@ Page({
   },
   getData: function(){
     wx.request({
-      url: 'https://exp.wx.kcwiki.org/query',
+      url: `${apiBase}/query`,
       data: {
         query: 'expedition'
       },

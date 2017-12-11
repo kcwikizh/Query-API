@@ -34,7 +34,7 @@
             <span class="item-content" wx:if="{{item.reward != 'null'}}">
               随机奖励：
               <block wx:for="{{item.reward}}" >
-                <span class="item-content">
+                <span class="item-content" style="font-weight:bold;color:#333">
                   {{item}}
                 </span>
               </block>
