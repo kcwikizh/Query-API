@@ -25,5 +25,10 @@
   bottom: 0px;
   left: 0;
   position: absolute;
-
+}
+.swiper-box {
+  height: calc(100% - 50px);
+}
+.swiper-item {
+  overflow: auto;
 }

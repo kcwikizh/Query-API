@@ -1,6 +1,4 @@
-<!-- <scroll-view  class="scroll-view"  scroll-y="true"  scroll-with-animation="true" enable-back-to-top="true" >
 
-</scroll-view> -->
 <view class="iot-tab-header">
   <span class="{{currentTab == 0 ? 'iot-tab-active':''}}" bindtap="clickTab" data-current="0">
     通常地图
@@ -10,11 +8,19 @@
   </span>
 </view>
 
+<!-- <scroll-view  class="scroll-view"  scroll-y="true"  scroll-with-animation="true" enable-back-to-top="true" >
+
+</scroll-view> -->
 <swiper current="{{currentTab}}" class="swiper-box" duration="300"  bindchange="swiperTab">
   <block wx:for="{{pageData}}">
-    <swiper-item>
-     <view wx:for="{{item}}">
-       {{index}}
+    <swiper-item class="swiper-item">
+     <view wx:for="{{item}}" wx:for-index="mainArea" wx:for-item="areaSet">
+       <span>
+         {{mainArea}}
+       </span>
+       <view wx:for="{{areaSet}}">
+         {{item}}
+       </view>
      </view>
     </swiper-item>
   </block>
