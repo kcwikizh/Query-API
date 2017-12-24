@@ -14,12 +14,14 @@
 <swiper current="{{currentTab}}" class="swiper-box" duration="300"  bindchange="swiperTab">
   <block wx:for="{{pageData}}">
     <swiper-item class="swiper-item">
-     <view wx:for="{{item}}" wx:for-index="mainArea" wx:for-item="areaSet">
-       <span>
+     <view wx:for="{{item}}" wx:for-index="mainArea" wx:for-item="areaSet" style="margin:15px 0px;">
+       <span class="area-title">
          {{mainArea}}
        </span>
-       <view wx:for="{{areaSet}}">
-         {{item}}
+       <view wx:for="{{areaSet}}" class="map-link" bindtap="toDetail" hover-class="item-hover">
+         <span>
+           {{item}}
+         </span>
        </view>
      </view>
     </swiper-item>

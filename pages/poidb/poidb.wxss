@@ -32,3 +32,26 @@
 .swiper-item {
   overflow: auto;
 }
+.area-title{
+  background-color: #e0a800;
+  color: #fff;
+  display: block;
+  font-size: 19px;
+  padding: 5px 0 5px 10px;
+}
+.map-link{
+  line-height: 40px;
+  display: block;
+}
+.map-link > span {
+  font-size: 15px;
+  padding-left: 20px;
+}
+.map-link::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  transform: scaleY(0.5);
+}
