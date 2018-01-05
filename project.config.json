@@ -38,7 +38,8 @@
 				{
 					"id": -1,
 					"name": "poi掉落",
-					"pathName": "pages/poidb/poidb"
+					"pathName": "pages/poidb/poidb",
+					"query": ""
 				}
 			]
 		}

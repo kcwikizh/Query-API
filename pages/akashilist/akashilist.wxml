@@ -22,7 +22,7 @@
       </view>
     </block>
   </view>
-  <button bindtap="openDrawer" type="primary" style="width:90%;margin-bottom:20px">
+  <button bindtap="openDrawer" type="primary" style="width:90%;margin-bottom:20px;background-color:#3d4456">
     选择装备改修分类
   </button>
 </scroll-view>

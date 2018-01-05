@@ -14,12 +14,12 @@
   justify-content: center;
 }
 .iot-tab-active {
-  color: #e0a800;
+  color: #3d4456;
 }
 .iot-tab-active::after{
   content: '';
   display: inline-block;
-  background-color: #e0a800;
+  background-color: #3d4456;
   height: 3px;
   width: 100%;
   bottom: 0px;
@@ -33,7 +33,7 @@
   overflow: auto;
 }
 .area-title{
-  background-color: #e0a800;
+  background-color: #3d4456;
   color: #fff;
   display: block;
   font-size: 19px;

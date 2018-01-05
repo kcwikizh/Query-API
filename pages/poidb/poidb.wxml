@@ -18,7 +18,7 @@
        <span class="area-title">
          {{mainArea}}
        </span>
-       <view wx:for="{{areaSet}}" class="map-link" bindtap="toDetail" hover-class="item-hover">
+       <view wx:for="{{areaSet}}" class="map-link" bindtap="toDetail" hover-class="item-hover" id="{{index}}">
          <span>
            {{item}}
          </span>

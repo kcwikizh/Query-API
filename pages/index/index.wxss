@@ -1,13 +1,20 @@
-// /**index.wxss**/
+
 .nav{
   width: 100%;
 }
-
 .nav-item-block{
   display: inline-block;
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
   margin-right: 20px;
+  vertical-align: middle;
+}
+.nav-item-text {
+  font-size: 17px;
+  line-height: 20px;
+  vertical-align: middle;
+  -webkit-font-smoothing:antialiased;
+  letter-spacing: 1px;
 }
 
 .navi{
@@ -19,6 +26,7 @@
   margin: 10px 0px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .nav-item::after{
@@ -26,51 +34,3 @@
   position: absolute;
   bottom: 0;
 }
-// .userinfo {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-//
-// .userinfo-avatar {
-//   width: 128rpx;
-//   height: 128rpx;
-//   margin: 20rpx;
-//   border-radius: 50%;
-// }
-//
-// .userinfo-nickname {
-//   color: #aaa;
-// }
-//
-// .usermotto {
-//   margin-top: 200px;
-// }
-//
-// .table {
-//   width: 90%;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   margin-top: 1rem;
-//   margin-right: 1rem;
-//   margin-left: 1rem;
-// }
-//
-// .swiper-tab{
-//   width: 100%;
-//   border-bottom: 2rpx solid #777777;
-//   text-align: center;
-//   line-height: 80rpx;
-//   }
-// .swiper-tab-list{ font-size: 30rpx;
-//   display: inline-block;
-//   width: 20%;
-//   color: #777777;
-// }
-// .on{ color: #da7c0c;
-//   border-bottom: 5rpx solid #da7c0c;}
-// .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
-// .swiper-box view{
-//   text-align: center;
-// }

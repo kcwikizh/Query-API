@@ -1,42 +1,35 @@
-<!--index.wxml-->
-<!--
-<view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">11</view>
-  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">22</view>
-  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">33</view>
-  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">44</view>
-  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">55</view>
-</view>
--->
-
 <scroll-view  class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" >
-  <view>
-    <image style="width: 100%; height: 200px; background-color: #eeeeee;" mode="aspectFill" src="../../asset/img/index01.jpg"></image>
+  <view class="padding:20px 0px">
+    <image style="width: 160px; height: 160px; display:block; margin:auto" mode="aspectFill" src="../../asset/img/logo.png"></image>
   </view>
   <view class="nav">
     <navigator url="/pages/mapsearch/mapsearch" hover-class="navigator-hover" class="navi">
-      <view class="nav-item-block" style="background-color: #46d3ec"></view>
-      制空带路速查
+      <view>
+        <view class="nav-item-block" style="background-color: #3d4456"></view>
+        <span class="nav-item-text">制空带路速查</span>
+      </view>
+      <div class="item-right-arrow"></div>
     </navigator>
     <navigator url="/pages/expedition/expedition" hover-class="navigator-hover" class="navi">
-      <view class="nav-item-block" style="background-color: #67ec46"></view>
-      远征查询
+      <view>
+        <view class="nav-item-block" style="background-color: #3d4456"></view>
+        <span class="nav-item-text">远征查询</span>
+      </view>
+      <div class="item-right-arrow"></div>
     </navigator>
     <navigator url="/pages/poidb/poidb" hover-class="navigator-hover" class="navi">
-      <view class="nav-item-block" style="background-color: #ec4646"></view>
-      POI掉落统计
+      <view>
+        <view class="nav-item-block" style="background-color: #3d4456"></view>
+        <span class="nav-item-text">POI掉落统计</span>
+      </view>
+      <div class="item-right-arrow"></div>
     </navigator>
     <navigator url="/pages/akashilist/akashilist" hover-class="navigator-hover" class="navi">
-      <view class="nav-item-block" style="background-color: #ece546"></view>
-      明石改修工厂
+      <view>
+        <view class="nav-item-block" style="background-color: #3d4456"></view>
+        <span class="nav-item-text">明石改修工厂</span>
+      </view>
+      <div class="item-right-arrow"></div>
     </navigator>
   </view>
-
 </scroll-view>
-<!--
-<view class="buttom">
-  <view style="height:100%;flex-direction: row;justify-content: center;  align-items: center;  font-size: 26rpx;display: flex;" >
-    <button size="mini" type="primary" plain="true" style="text-align: center;  justify-content: center; align-items: center;  display: flex; width: 60%; height:80%;" data-index="index"> 回到主页 </button>
-  </view>
-</view>
--->

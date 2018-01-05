@@ -42,11 +42,19 @@ page{
   position: relative;
   min-height: 44px;
   padding-left: 15px;
+  padding-right: 20px;
   vertical-align: middle;
   overflow: hidden;
   align-items: center;
+  justify-content: space-between;
 }
-
+.iot-right-arrow {
+  width: 9px;
+  height: 9px;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
+  transform: rotate(45deg);
+}
 .iot-list-item-hover{
   background-color: #f5f5f5;
 }

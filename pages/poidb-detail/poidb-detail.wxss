@@ -1,0 +1,13 @@
+.map {
+  width: 95%;
+  display: block;
+  margin: auto;
+}
+.scroll-view{
+  width: 100%;
+  padding-top: 5px;
+}
+.picker{
+  font-size: 17px;
+
+}

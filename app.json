@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/mapsearch/mapsearch",
     "pages/poidb/poidb",
+    "pages/poidb-detail/poidb-detail",
     "pages/expedition/expedition",
     "pages/akashilist/akashilist",
     "pages/akashi-equip-detail/akashi-equip-detail",
