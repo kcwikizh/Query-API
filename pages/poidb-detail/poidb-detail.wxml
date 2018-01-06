@@ -2,9 +2,9 @@
 <scroll-view  class="scroll-view"  scroll-y="true"  scroll-with-animation="true" enable-back-to-top="true" >
   <image src="{{pageData.img}}" mode="aspectFill" class="map"></image>
   <span class="wcapp-title">地图点选择</span>
-  <picker bindchange="bindPickerChange" mode="selector" value="{{index}}" range="{{pageData.point}}">
-    <view class="picker">
-      当前选择：{{pageData.point[selctPointIndex] || '无'}}
+  <picker bindchange="bindPointChange" mode="selector" value="{{index}}" range="{{pageData.point}}">
+    <view class="picker wcapp-item-line">
+      <span>当前选择：{{pageData.point[selctPointIndex] || '无'}}</span>
     </view>
   </picker>
 </scroll-view>

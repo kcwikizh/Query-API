@@ -5,13 +5,19 @@ import {apiBase} from '../../config/config'
 Page({
   data: {
     pageData:{},
+    pointData:{},
     mapNo:'',
-    selctPointIndex:''
+    difficulty: '',
+    assessment: '',
+    selctPointIndex:'',
   },
-  bindPickerChange: function(event){
-    console.log(event.detail);
+  bindPointChange: function(event){
     this.setData({
       selctPointIndex: event.detail.value
+    })
+    this.getPointData({
+      mapno: this.data.mapNo,
+      point: this.data.pageData.point[this.data.selctPointIndex]
     })
   },
   getData: function(mapNo){
@@ -43,12 +49,13 @@ Page({
       },
     })
   },
-  getPointData: function(mapNo){
+  getPointData: function( payload ){
+    console.log(payload);
     wx.request({
       url: `${apiBase}/query`,
       data: {
-        query: 'map',
-        mapno: mapNo
+        query: 'point',
+        ... payload
       },
       method: 'POST',
       header: {
@@ -59,7 +66,7 @@ Page({
         if (res.data.status == "success") {
           console.log(res.data.data);
           this.setData({
-            pageData: res.data.data
+            pointData: res.data.data
           })
         }
         else if ( res.data.status == "error" ) {
