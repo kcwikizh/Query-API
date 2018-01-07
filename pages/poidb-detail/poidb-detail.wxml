@@ -1,10 +1,24 @@
 
 <scroll-view  class="scroll-view"  scroll-y="true"  scroll-with-animation="true" enable-back-to-top="true" >
   <image src="{{pageData.img}}" mode="aspectFill" class="map"></image>
-  <span class="wcapp-title">地图点选择</span>
-  <picker bindchange="bindPointChange" mode="selector" value="{{index}}" range="{{pageData.point}}">
+  <span class="wcapp-title">地图点选择（请选择完整查询条件）</span>
+  <picker bindchange="bindPickerChange" mode="selector" value="{{item.value}}" range="{{pageData.point}}" id="point">
     <view class="picker wcapp-item-line">
       <span>当前选择：{{pageData.point[selctPointIndex] || '无'}}</span>
     </view>
   </picker>
+  <picker bindchange="bindPickerChange" mode="selector" value="{{index}}" range-key="label" range="{{asseOption}}" id="assessment" wx:if="{{selctPointIndex != ''}}">
+    <view class="picker wcapp-item-line">
+      <span>结算评价：{{asseOption[selctAsseIndex].label || '无'}}</span>
+    </view>
+  </picker>
+  <picker bindchange="bindPickerChange" mode="selector" value="{{index}}" range-key="label" range="{{diffOption}}" id="difficulty" wx:if="{{(mapType == 'event')&& (selctPointIndex != '')}}">
+    <view class="picker wcapp-item-line">
+      <span>地图难度：{{diffOption[selctDiffIndex].label || '无'}}</span>
+    </view>
+  </picker>
+  <view wx:for="{{pointData.notrare}}" class="drop-item">
+    <span class="drop-title">{{index}}</span>
+    <span class="drop-content">{{item.rate}}</span>
+  </view>
 </scroll-view>

@@ -34,3 +34,11 @@
   position: absolute;
   bottom: 0;
 }
+.footer-message{
+  text-align:center;
+  color:#333;
+  position: fixed;
+  display: block;
+  width: 100%;
+  bottom: 15px;
+}

@@ -1,12 +1,10 @@
 
-<text> \r </text>
-
 <scroll-view class="content" scroll-y="true" scroll-into-view="{{toView}}" scroll-with-animation="true" enable-back-to-top="true" >
 <view style='display: flex; justify-content: center; '>
 <textarea >
-  <view class="tr" style='background:#46A3FF'>  
-    <view class="th-title" style='font-size:20px;'>致谢</view>  
-  </view> 
+  <view class="tr" style='background:#46A3FF'>
+    <view class="th-title" style='font-size:20px;'>致谢</view>
+  </view>
   <text>
     本程序的改修模块数据全部来源于明石工厂：akashi-list.me。我们衷心感谢以下提出、验证数值的团体、个人。在此感谢他们的付出。
   </text>
@@ -21,27 +19,27 @@
 <view style="height:750rpx;"></view>
 
 <view  wx:for="{{thankslistView}}" wx:for-index="listidx" wx:for-item="list" >
-<view class="{{thankslistTableShowView?'table':'hideView'}}">  
-  <view class="tr bg-w">  
-    <view class="th-title">{{list[0].title}}</view>  
-  </view> 
-  <block  wx:for="{{list[1].arr}}"  wx:for-index="areaidx" wx:for-item="area" >  
-     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}"> 
+<view class="{{thankslistTableShowView?'table':'hideView'}}">
+  <view class="tr bg-w">
+    <view class="th-title">{{list[0].title}}</view>
+  </view>
+  <block  wx:for="{{list[1].arr}}"  wx:for-index="areaidx" wx:for-item="area" >
+     <view class="tr bg-g" wx:if="{{areaidx % 2 == 0}}">
       <view class="td-2" selectable="true" style='word-break: break-all' >
-          <text class="th-text" selectable="true" >{{area}}</text> 
-      </view>  
-    </view>  
-    <view class="tr bg-g2" wx:else>  
+          <text class="th-text" selectable="true" >{{area}}</text>
+      </view>
+    </view>
+    <view class="tr bg-g2" wx:else>
       <view class="td-2" selectable="true" style='word-break: break-all'  >
           <text class="th-text" selectable="true" >{{area}}</text>
-      </view>  
-    </view>   
-  </block>  
-</view>  
+      </view>
+    </view>
+  </block>
+</view>
 </view>
 <view style="height:100rpx;"></view>
 
-</scroll-view> 
+</scroll-view>
 
 
 <view class="buttom">

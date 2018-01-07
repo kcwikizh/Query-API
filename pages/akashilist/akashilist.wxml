@@ -32,8 +32,8 @@
 
 
 
-<!-- <view>
+<view>
   <navigator url="/pages/thankslist/thankslist" hover-class="navigator-hover" class="navi">
     数据致谢名单
   </navigator>
-</view> -->
+</view>

@@ -6,19 +6,57 @@ Page({
   data: {
     pageData:{},
     pointData:{},
+    asseOption:[{
+      value: 'S',
+      label:'S以上'
+    },{
+      value: 'SA',
+      label:'A以上'
+    },{
+      value: 'SAB',
+      label:'B以上'
+    }],
+    diffOption:[{
+      value: 3,
+      label:'甲'
+    },{
+      value: 2,
+      label:'乙'
+    },{
+      value: 1,
+      label:'丙'
+    }],
     mapNo:'',
-    difficulty: '',
-    assessment: '',
+    mapType:'',
     selctPointIndex:'',
+    selctDiffIndex:'',
+    selctAsseIndex:'',
   },
-  bindPointChange: function(event){
-    this.setData({
-      selctPointIndex: event.detail.value
-    })
-    this.getPointData({
-      mapno: this.data.mapNo,
-      point: this.data.pageData.point[this.data.selctPointIndex]
-    })
+  bindPickerChange: function(event){
+    if (event.target.id == 'point') {
+      this.setData({
+        selctPointIndex: event.detail.value
+      })
+    }else if (event.target.id == 'assessment') {
+      this.setData({
+        selctAsseIndex: event.detail.value
+      })
+    }else if (event.target.id == 'difficulty') {
+      this.setData({
+        selctDiffIndex: event.detail.value
+      })
+    }
+    if (this.data.selctPointIndex != '' && this.data.selctAsseIndex != '') {
+      if (this.data.mapType == 'event' && this.data.selctDiffIndex == '') {
+        return
+      }
+      this.getPointData({
+        mapno: this.data.mapNo,
+        point: this.data.pageData.point[this.data.selctPointIndex],
+        assessment: this.data.selctAsseIndex != '' ? (this.data.asseOption[this.data.selctAsseIndex].value):'',
+        difficulty: this.data.selctDiffIndex != '' ? (this.data.diffOption[this.data.selctDiffIndex].value):''
+      })
+    }
   },
   getData: function(mapNo){
     wx.request({
@@ -82,7 +120,8 @@ Page({
   onLoad: function (e) {
     this.getData(e.mid)
     this.setData({
-      mapNo: e.mid
+      mapNo: e.mid,
+      mapType: e.type
     })
   }
 })

@@ -14,3 +14,18 @@
 .picker span{
   margin-left: 15px;
 }
+.drop-item{
+  height: 30px;
+  width: 50%;
+  display: inline-block;
+
+}
+.drop-title {
+  display: inline-block;
+  width: 50%;
+  padding: 10px
+}
+
+.drop-content {
+  color: rgb(201, 62, 53)
+}

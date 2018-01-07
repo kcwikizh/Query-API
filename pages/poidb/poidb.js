@@ -20,9 +20,10 @@ Page({
     })
   },
   toDetail:function( event ){
-    var id = event.currentTarget.id;
+    const id = event.currentTarget.id;
+    const type = this.data.currentTab == 0 ? 'normal':'event'
     wx.navigateTo({
-      url: `/pages/poidb-detail/poidb-detail?mid=${id}`
+      url: `/pages/poidb-detail/poidb-detail?mid=${id}&type=${type}`
     })
   },
   getData: function(){
@@ -39,6 +40,7 @@ Page({
       success: (res) => {
         if (res.data.status == "success") {
           console.log(res.data.data);
+          //分离活动地图和通常地图
           let index = 0
           let normal = {}
           let event = {}

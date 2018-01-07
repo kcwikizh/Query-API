@@ -32,4 +32,8 @@
       <div class="item-right-arrow"></div>
     </navigator>
   </view>
+  <view  class="footer-message">
+    <span style="font-size:14px;display:block">如果有任何宝贵意见，可以微博@kcwiki舰娘百科</span>
+    <span style="font-size:12px">Welcome PR or Suggestions</span>
+  </view>
 </scroll-view>
