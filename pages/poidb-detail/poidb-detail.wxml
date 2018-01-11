@@ -17,7 +17,15 @@
       <span>地图难度：{{diffOption[selctDiffIndex].label || '无'}}</span>
     </view>
   </picker>
-  <view wx:for="{{pointData.notrare}}" class="drop-item">
+  <view class="drop-type-switch" wx:if="{{showSwitchButton}}">
+    <span>切换稀有掉落：</span>
+    <switch bindchange="switchChange"/>
+  </view>
+  <view wx:for="{{pointData.notrare}}" class="drop-item" wx:if="{{dropListType == 'notrare'}}">
+    <span class="drop-title">{{index}}</span>
+    <span class="drop-content">{{item.rate}}</span>
+  </view>
+  <view wx:for="{{pointData.rare}}" class="drop-item" wx:if="{{dropListType == 'rare'}}">
     <span class="drop-title">{{index}}</span>
     <span class="drop-content">{{item.rate}}</span>
   </view>

@@ -29,3 +29,12 @@
 .drop-content {
   color: rgb(201, 62, 53)
 }
+
+.drop-type-switch {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.drop-type-switch > span{
+  line-height: 30px;
+  font-size: 17px;
+}

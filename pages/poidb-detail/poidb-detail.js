@@ -31,6 +31,13 @@ Page({
     selctPointIndex:'',
     selctDiffIndex:'',
     selctAsseIndex:'',
+    dropListType:'notrare',
+    showSwitchButton: false
+  },
+  switchChange: function (e){
+    this.setData({
+      dropListType: e.detail.value ? 'rare':'notrare'
+    })
   },
   bindPickerChange: function(event){
     if (event.target.id == 'point') {
@@ -104,7 +111,8 @@ Page({
         if (res.data.status == "success") {
           console.log(res.data.data);
           this.setData({
-            pointData: res.data.data
+            pointData: res.data.data,
+            showSwitchButton: true
           })
         }
         else if ( res.data.status == "error" ) {
