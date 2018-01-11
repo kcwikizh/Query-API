@@ -19,7 +19,7 @@
   </picker>
   <view class="drop-type-switch" wx:if="{{showSwitchButton}}">
     <span>切换稀有掉落：</span>
-    <switch bindchange="switchChange"/>
+    <switch bindchange="switchChange" color="#3d4456"/>
   </view>
   <view wx:for="{{pointData.notrare}}" class="drop-item" wx:if="{{dropListType == 'notrare'}}">
     <span class="drop-title">{{index}}</span>
